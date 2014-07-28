@@ -98,6 +98,13 @@ BOOL CglDialogDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
+	m_Display.Create( NULL,   //缺省的窗口
+		NULL,   //无窗口名称
+		WS_CHILD|WS_CLIPSIBLINGS|WS_CLIPCHILDREN|WS_VISIBLE,
+		// 定义窗口风格
+		CRect(0, 0, 256, 256),   // 窗口的大小
+		this,   // 指定当前对话框为其父窗口指针
+		0); 
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }

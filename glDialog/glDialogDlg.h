@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include "glWnd.h"
 
 // CglDialogDlg 对话框
 class CglDialogDlg : public CDialogEx
@@ -11,6 +12,8 @@ class CglDialogDlg : public CDialogEx
 // 构造
 public:
 	CglDialogDlg(CWnd* pParent = NULL);	// 标准构造函数
+
+	glWnd	m_Display;
 
 // 对话框数据
 	enum { IDD = IDD_GLDIALOG_DIALOG };
