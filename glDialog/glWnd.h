@@ -1,6 +1,7 @@
 #pragma once
 
 #include <gl/GL.h>
+#include "oceanFFT/COceanSim.h"
 
 // glWnd
 
@@ -18,6 +19,8 @@ public:
 	HDC hdc;
 	HGLRC hglrc;
 	GLfloat step,s;
+
+	COceanSim	m_ocean;
 
 protected:
 	DECLARE_MESSAGE_MAP()

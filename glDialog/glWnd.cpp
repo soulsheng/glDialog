@@ -18,6 +18,7 @@ glWnd::glWnd()
 
 glWnd::~glWnd()
 {
+	m_ocean.cleanUp();
 	wglMakeCurrent(NULL,NULL);
 	wglDeleteContext(hglrc);//删除渲染描述表
 	::ReleaseDC(m_hWnd,hdc);//释放设备描述表
@@ -51,6 +52,8 @@ int glWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	// 使绘图描述表为当前调用现程的当前绘图描述表
 	wglMakeCurrent(hdc, hglrc); 
 
+	m_ocean.initialize();
+
 	return 0;
 }
 
@@ -72,7 +75,7 @@ void glWnd::OnPaint()
 	glRotatef(step,0.0,1.0,0.0);
 	glRotatef(step,0.0,0.0,1.0);
 	glRotatef(step,1.0,0.0,0.0);
-	DrawColorBox();
+	m_ocean.render();//	DrawColorBox();
 	glPopMatrix();
 	glFlush();
 
