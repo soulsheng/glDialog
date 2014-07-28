@@ -52,6 +52,14 @@ int glWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	// 使绘图描述表为当前调用现程的当前绘图描述表
 	wglMakeCurrent(hdc, hglrc); 
 
+	// 初始化Glew
+	GLenum err = glewInit();
+	if (GLEW_OK != err)
+	{
+		/* Problem: glewInit failed, something is seriously wrong. */
+		AfxMessageBox( "glewInit failed, something is seriously wrong." );
+	}
+
 	m_ocean.initialize();
 
 	return 0;
