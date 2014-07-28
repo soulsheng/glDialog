@@ -57,7 +57,7 @@ int glWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 void glWnd::OnPaint()
 {
-	CPaintDC dc(this); // device context for painting
+	//CPaintDC dc(this); // device context for painting
 	// TODO: 在此处添加消息处理程序代码
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //清除颜色缓存和深度缓存
 
