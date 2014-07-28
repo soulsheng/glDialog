@@ -4,3 +4,6 @@
 /glDialog/*.filters
 /glDialog/ipch
 /glDialog/*.sdf
+/Debug
+/glDialog/Debug
+/glDialog/Release
