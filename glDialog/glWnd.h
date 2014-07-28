@@ -11,6 +11,13 @@ public:
 	glWnd();
 	virtual ~glWnd();
 
+	// add member function and variable
+	int MySetPixelFormat(HDC hdc);
+	void DrawColorBox(void);
+	HDC hdc;
+	HGLRC hglrc;
+	GLfloat step,s;
+
 protected:
 	DECLARE_MESSAGE_MAP()
 public:
