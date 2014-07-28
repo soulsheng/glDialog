@@ -56,3 +56,10 @@
 #endif
 
 
+#include <gl/glew.h>
+#include <gl/GL.h>
+
+/// 导入必要的openGL库.
+#pragma message("  now input OpenGL standard lib...")
+#pragma   comment(lib,"opengl32.lib")
+#pragma   comment(lib ,"glew32.lib")
