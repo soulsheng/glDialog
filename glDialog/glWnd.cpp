@@ -12,11 +12,15 @@ IMPLEMENT_DYNAMIC(glWnd, CWnd)
 
 glWnd::glWnd()
 {
-
+	step = 0.0;
+	s = 0.1;
 }
 
 glWnd::~glWnd()
 {
+	wglMakeCurrent(NULL,NULL);
+	wglDeleteContext(hglrc);//删除渲染描述表
+	::ReleaseDC(m_hWnd,hdc);//释放设备描述表
 }
 
 
@@ -38,6 +42,14 @@ int glWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 
 	// TODO:  在此添加您专用的创建代码
+	MySetPixelFormat(::GetDC(m_hWnd));
+
+	// 获得绘图描述表
+	hdc = ::GetDC(m_hWnd);
+	// 创建渲染描述表
+	hglrc = wglCreateContext(hdc);
+	// 使绘图描述表为当前调用现程的当前绘图描述表
+	wglMakeCurrent(hdc, hglrc); 
 
 	return 0;
 }
@@ -47,6 +59,25 @@ void glWnd::OnPaint()
 {
 	CPaintDC dc(this); // device context for painting
 	// TODO: 在此处添加消息处理程序代码
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //清除颜色缓存和深度缓存
+
+	s+=0.005;
+	if(s>1.0)
+		s=0.1;
+	step = step + 1.0;
+	if (step > 360.0)
+		step = step - 360.0;
+	glPushMatrix();
+	glScalef(s,s,s);
+	glRotatef(step,0.0,1.0,0.0);
+	glRotatef(step,0.0,0.0,1.0);
+	glRotatef(step,1.0,0.0,0.0);
+	DrawColorBox();
+	glPopMatrix();
+	glFlush();
+
+	SwapBuffers(hdc);
+
 	// 不为绘图消息调用 CWnd::OnPaint()
 }
 
