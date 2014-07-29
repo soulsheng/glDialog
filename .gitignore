@@ -9,3 +9,6 @@
 /glDialog/Release
 /Release
 /glDialog/*.aps
+/*.opensdf
+/*.sdf
+/ipch

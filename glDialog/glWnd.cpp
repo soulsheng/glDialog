@@ -14,6 +14,22 @@ glWnd::glWnd()
 {
 	step = 0.0;
 	s = 0.1;
+
+	//	视点位置
+	g_eye[0] = 0.0f;	
+	g_eye[1] = 0.0f;	
+	g_eye[2] = 0.0f;	
+
+	//	焦点位置
+	g_look[0] = 0.0f;	
+	g_look[1] = 0.0f;	
+	g_look[2] = -1.0f;	// 朝屏幕里面看
+
+	//	头顶法向
+	g_up[0] = 0.0f;		
+	g_up[1] = 1.0f;		// 头顶向上，不歪
+	g_up[2] = 0.0f;		
+
 }
 
 glWnd::~glWnd()
@@ -51,6 +67,18 @@ int glWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	// 使绘图描述表为当前调用现程的当前绘图描述表
 	wglMakeCurrent(hdc, hglrc); 
 
+	// 初始化Glew
+	GLenum err = glewInit();
+	if (GLEW_OK != err)
+	{
+		/* Problem: glewInit failed, something is seriously wrong. */
+		AfxMessageBox( "glewInit failed, something is seriously wrong." );
+	}
+
+	glClearColor(0.5f,0.6f,0.8f,1.0f);
+	
+
+
 	return 0;
 }
 
@@ -61,6 +89,13 @@ void glWnd::OnPaint()
 	// TODO: 在此处添加消息处理程序代码
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //清除颜色缓存和深度缓存
 
+	gluLookAt(
+		g_eye[0],	g_eye[1],	g_eye[2],
+		g_look[0],	g_look[1],	g_look[2],
+		g_up[0],	g_up[1],	g_up[2]);
+
+
+#if 0
 	s+=0.005;
 	if(s>1.0)
 		s=0.1;
@@ -72,10 +107,10 @@ void glWnd::OnPaint()
 	glRotatef(step,0.0,1.0,0.0);
 	glRotatef(step,0.0,0.0,1.0);
 	glRotatef(step,1.0,0.0,0.0);
-	DrawColorBox();
+	//	DrawColorBox();
 	glPopMatrix();
 	glFlush();
-
+#endif
 	SwapBuffers(hdc);
 
 	// 不为绘图消息调用 CWnd::OnPaint()

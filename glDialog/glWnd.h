@@ -19,6 +19,11 @@ public:
 	HGLRC hglrc;
 	GLfloat step,s;
 
+
+	float	g_eye[3];		//	视点位置
+	float	g_look[3];		//	焦点位置
+	float	g_up[3];		//	头顶法向
+
 protected:
 	DECLARE_MESSAGE_MAP()
 public:
