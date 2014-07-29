@@ -61,6 +61,7 @@ int glWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	}
 
 	m_ocean.initialize();
+	m_ocean.setVisible(true);
 
 	return 0;
 }

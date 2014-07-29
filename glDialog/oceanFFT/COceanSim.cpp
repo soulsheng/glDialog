@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "COceanSim.h"
 
-#define		LENGTH_OCEAN	10000
+#define		LENGTH_OCEAN	1
 
 ////////////////////////////////////////////////////////////////////////////////
 // kernels
