@@ -76,6 +76,9 @@ int glWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		AfxMessageBox( "glewInit failed, something is seriously wrong." );
 	}
 
+	glClearColor(0.5f,0.6f,0.8f,1.0f);
+	
+
 	m_ocean.initialize();
 	m_ocean.setVisible(true);
 
