@@ -63,6 +63,7 @@ BEGIN_MESSAGE_MAP(CglDialogDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BTN_LoadModel, &CglDialogDlg::OnBnClickedLoadModel)
 END_MESSAGE_MAP()
 
 
@@ -158,3 +159,33 @@ HCURSOR CglDialogDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CglDialogDlg::OnBnClickedLoadModel()
+{
+	// TODO: 在此添加控件通知处理程序代码
+
+	CString DefExt;
+
+	std::string filepath;
+
+
+	DefExt.Format("%s","mod文件(*.mod)|*.mod|");
+
+	///CFileDialog第一个参数若为true，为打开文件对话框,该段基于mfc
+	CFileDialog dlgmodelFile(true,"mod",NULL,OFN_HIDEREADONLY|OFN_CREATEPROMPT|OFN_NONETWORKBUTTON,DefExt);
+
+	dlgmodelFile.m_ofn.lpstrTitle="模型";
+
+	if(dlgmodelFile.DoModal()==IDOK)
+	{
+		filepath = dlgmodelFile.GetPathName();
+	}
+
+	if (filepath.empty())
+	{
+		return;
+	}
+
+	m_Display.LoadModel( filepath ) ;
+}
