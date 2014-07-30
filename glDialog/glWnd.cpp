@@ -20,10 +20,10 @@ glWnd::glWnd()
 	g_eye[1] = 0.0f;	
 	g_eye[2] = 1000.0f;	
 
-	//	焦点位置
-	g_look[0] = 0.0f;	
-	g_look[1] = 0.0f;	
-	g_look[2] = -1.0f;	// 朝屏幕里面看
+	//	视线方向
+	g_dir[0] = 0.0f;	
+	g_dir[1] = 0.0f;	
+	g_dir[2] = -1.0f;	// 默认朝屏幕里面看
 
 	//	头顶法向
 	g_up[0] = 0.0f;		
@@ -96,7 +96,7 @@ void glWnd::OnPaint()
 	glLoadIdentity();
 	gluLookAt(
 		g_eye[0],	g_eye[1],	g_eye[2],
-		g_look[0],	g_look[1],	g_look[2],
+		g_eye[0] + g_dir[0],	g_eye[1] + g_dir[1],	g_eye[2] + g_dir[2],
 		g_up[0],	g_up[1],	g_up[2]);
 
 	renderObject();
