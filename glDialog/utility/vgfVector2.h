@@ -11,8 +11,8 @@
 #ifndef __VGFVECTOR2_H__
 #define __VGFVECTOR2_H__
 
-#include "vgfPrerequisites.h"
-#include "vgfMath.h"
+#include "vgPrerequisites.h"
+//#include "vgfMath.h"
 
 
 namespace vgFoundationSystem {
@@ -33,7 +33,7 @@ namespace vgFoundationSystem {
 	scaling factors can be represented by a vector, depending on how
 	you interpret the values.
 	*/
-	class VgfExport Vector2
+	class Vector2
 	{
 	public:
 
@@ -227,26 +227,6 @@ namespace vgFoundationSystem {
 		*/
 		inline Real crossProduct( const Vector2& rkVector ) const;
 
-		/** Generates a new random vector which deviates from this vector by a
-		given angle in a random direction.
-		@remarks
-		This method assumes that the random number generator has already
-		been seeded appropriately.
-		@param
-		angle The angle at which to deviate in radians
-		@param
-		up Any vector perpendicular to this one (which could generated
-		by cross-product of this vector and any other non-colinear
-		vector). If you choose not to provide this the function will
-		derive one on it's own, however if you provide one yourself the
-		function will be faster (this allows you to reuse up vectors if
-		you call this method more than once)
-		@returns
-		A random vector which deviates from this vector by angle. This
-		vector will not be normalised, normalise it if you wish
-		afterwards.
-		*/
-		inline Vector2 randomDeviant( Real angle) const;
 
 		/** Returns true if this vector is zero length. */
 		inline bool isZeroLength(void) const;
@@ -270,7 +250,7 @@ namespace vgFoundationSystem {
 
 		/** Function for writing to a stream.
 		*/
-		inline VgfExport friend std::ostream& operator <<
+		inline  friend std::ostream& operator <<
 			( std::ostream& o, const Vector2& v );
 
 		/// Êä³ö²âÊÔº¯Êý.

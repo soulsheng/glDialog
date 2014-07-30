@@ -8,8 +8,10 @@
 -----------------------------------------------------------------------------
 */
 
-#include "vgfStableHeaders.h"
+//#include "vgfStableHeaders.h"
 #include "StdAfx.h"
+#include "vgfVector3.h"
+
 namespace vgFoundationSystem {
 	
 	const Vector3 Vector3::ZERO( 0, 0, 0 );

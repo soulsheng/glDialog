@@ -279,7 +279,7 @@ inline Vector3& Vector3::operator /= ( const Vector3& rkVector )
 //----------------------------------------------------------------
 inline Real Vector3::normalise()
 {
-	Real fLength = Math::Sqrt( x * x + y * y + z * z );
+	Real fLength = sqrt( x * x + y * y + z * z );
 
 	// Will also work for zero-sized vectors, but will change nothing
 	if ( fLength > 1e-08 )
@@ -358,15 +358,6 @@ inline bool Vector3::operator >= ( const Vector3& rhs ) const
 }
 
 //----------------------------------------------------------------
-inline bool Vector3::positionEquals(const Vector3& rhs, Real tolerance /*= 1e-03*/) const
-{
-	return Math::RealEqual(x, rhs.x, tolerance) &&
-		Math::RealEqual(y, rhs.y, tolerance) &&
-		Math::RealEqual(z, rhs.z, tolerance);
-
-}
-
-//----------------------------------------------------------------
 /** As normalise, except that this vector is unaffected and the
 normalised vector is returned as a copy. */
 inline Vector3 Vector3::normalisedCopy(void) const
@@ -402,23 +393,6 @@ inline Vector3 Vector3::makeFloor( const Vector3& cmp )
 }
 
 
-//----------------------------------------------------------------
-
-/** Calculates the absolute dot (scalar) product of this vector with another.
-@remarks
-This function work similar dotProduct, except it use absolute value
-of each component of the vector to computing.
-@param
-vec Vector with which to calculate the absolute dot product (together
-with this one).
-@returns
-A Real representing the absolute dot product value.
-*/
-inline Real Vector3::absDotProduct(const Vector3& vec) const
-{
-	return Math::Abs(x * vec.x) + Math::Abs(y * vec.y) + Math::Abs(z * vec.z);
-}
-
 
 //----------------------------------------------------------------
 
@@ -445,7 +419,7 @@ inline Real Vector3::dotProduct(const Vector3& vec) const
 
 inline Real Vector3::length () const
 {
-	return Math::Sqrt( x * x + y * y + z * z );
+	return sqrt( x * x + y * y + z * z );
 }
 
 //----------------------------------------------------------------

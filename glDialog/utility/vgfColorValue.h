@@ -11,7 +11,7 @@
 #ifndef __VGFCOLORVALUE_H__
 #define __VGFCOLORVALUE_H__
 
-#include "vgfPrerequisites.h"
+#include "vgPrerequisites.h"
 
 
 namespace vgFoundationSystem {
@@ -37,7 +37,7 @@ namespace vgFoundationSystem {
 	
 		@see    
 	*/
-    class VgfExport ColorValue
+    class ColorValue
     {
     public:
 
@@ -340,7 +340,7 @@ namespace vgFoundationSystem {
 
 		/** Function for writing to a stream.
 		*/
-		inline VgfExport friend std::ostream& operator <<
+		inline friend std::ostream& operator <<
 			( std::ostream& o, const ColorValue& c )
 		{
 			o << "ColorValue(" << c.r << ", " << c.g << ", " << c.b << ", " << c.a << ")";

@@ -9,7 +9,6 @@
 */
 
 #include "StdAfx.h"
-#include "vgfStableHeaders.h"
 #include "vgfColorValue.h"
 
 
@@ -242,10 +241,10 @@ namespace vgFoundationSystem {
 			hue += (int)hue + 1;
 		}
 		// clamp saturation / brightness
-		saturation = Math::Min(saturation, (Real)1.0);
-		saturation = Math::Max(saturation, (Real)0.0);
-		brightness = Math::Min(brightness, (Real)1.0);
-		brightness = Math::Max(brightness, (Real)0.0);
+		saturation = min(saturation, (Real)1.0);
+		saturation = max(saturation, (Real)0.0);
+		brightness = min(brightness, (Real)1.0);
+		brightness = max(brightness, (Real)0.0);
 
 		if (brightness == 0.0f)
 		{   

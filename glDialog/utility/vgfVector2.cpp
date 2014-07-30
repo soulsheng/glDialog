@@ -8,9 +8,9 @@
 -----------------------------------------------------------------------------
 */
 
-#include "vgfStableHeaders.h"
-#include "vgfVector2.h"
+//#include "vgfStableHeaders.h"
 #include "StdAfx.h"
+#include "vgfVector2.h"
 
 namespace vgFoundationSystem {
 	

@@ -223,7 +223,7 @@ inline Vector2& Vector2::operator /= ( const Vector2& rkVector )
 //----------------------------------------------------------------
 inline Real Vector2::length () const
 {
-	return Math::Sqrt( x * x + y * y );
+	return sqrt( x * x + y * y );
 }
 
 //----------------------------------------------------------------
@@ -243,7 +243,7 @@ inline Real Vector2::dotProduct(const Vector2& vec) const
 
 inline Real Vector2::normalise()
 {
-	Real fLength = Math::Sqrt( x * x + y * y);
+	Real fLength = sqrt( x * x + y * y);
 
 	// Will also work for zero-sized vectors, but will change nothing
 	if ( fLength > 1e-08 )
@@ -307,17 +307,7 @@ inline Real Vector2::crossProduct( const Vector2& rkVector ) const
 {
 	return x * rkVector.y - y * rkVector.x;
 }
-//----------------------------------------------------------------
-inline Vector2 Vector2::randomDeviant(
-							 Real angle) const
-{
 
-	angle *=  Math::UnitRandom() * Math::TWO_PI;
-	Real cosa = cos(angle);
-	Real sina = sin(angle);
-	return  Vector2(cosa * x - sina * y,
-		sina * x + cosa * y);
-}
 
 //----------------------------------------------------------------
 inline bool Vector2::isZeroLength(void) const
@@ -343,7 +333,7 @@ inline Vector2 Vector2::reflect(const Vector2& normal) const
 
 //----------------------------------------------------------------
 
-inline VgfExport   std::ostream& operator <<
+inline    std::ostream& operator <<
 ( std::ostream& o, const Vector2& v )
 {
 	o << "Vector2( " << v.x << " , " << v.y <<  " )";

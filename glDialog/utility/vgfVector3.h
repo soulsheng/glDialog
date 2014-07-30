@@ -11,12 +11,15 @@
 #ifndef __VGFVECTOR3_H__
 #define __VGFVECTOR3_H__
 
-#include "vgfPrerequisites.h"
-#include "vgfMath.h"
-
+//#include "vgfPrerequisites.h"
+//#include "vgfMath.h"
+#include <sstream>
+#include <string>
 
 namespace vgFoundationSystem {
 
+	typedef float	Real;
+	typedef std::string	String;
 	/**
 		@date 	2007/02/19  23:11	
 		@author  leven
@@ -26,7 +29,7 @@ namespace vgFoundationSystem {
 	
 		@see   Matrix3 Vector2
 	*/
-	class VgfExport Vector3
+	class Vector3
 	{
 	public:
 
@@ -191,20 +194,6 @@ namespace vgFoundationSystem {
 		*/
 		inline Real dotProduct(const Vector3& vec) const;
 
-
-		///用于"vgPlane.cpp  85行"
-		/** Calculates the absolute dot (scalar) product of this vector with another.
-		@remarks
-		This function work similar dotProduct, except it use absolute value
-		of each component of the vector to computing.
-		@param
-		vec Vector with which to calculate the absolute dot product (together
-		with this one).
-		@returns
-		A Real representing the absolute dot product value.
-		*/
-		inline Real absDotProduct(const Vector3& vec) const;
-
 		///标准化向量,注意:			
 		///1. 此时可以杜绝0向量的情况.
 		///2. 含有返回值,返回值为先前向量的长度,注意不是vector3,若要返回vector3 ,请使用normalisedRef().
@@ -297,7 +286,6 @@ namespace vgFoundationSystem {
 		@param tolerance The amount that each element of the vector may vary by
 		and still be considered equal
 		*/
-		inline bool positionEquals(const Vector3& rhs, Real tolerance = 1e-03) const;
 		inline bool operator <= ( const Vector3& rhs ) const;
 
 		/** Returns true if the vector's scalar components are all smaller
