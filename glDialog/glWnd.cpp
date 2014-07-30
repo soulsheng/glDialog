@@ -18,7 +18,7 @@ glWnd::glWnd()
 	//	视点位置
 	g_eye[0] = 0.0f;	
 	g_eye[1] = 0.0f;	
-	g_eye[2] = 0.0f;	
+	g_eye[2] = -40.0f;	
 
 	//	焦点位置
 	g_look[0] = 0.0f;	
@@ -44,6 +44,7 @@ glWnd::~glWnd()
 BEGIN_MESSAGE_MAP(glWnd, CWnd)
 	ON_WM_CREATE()
 	ON_WM_PAINT()
+	ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 
@@ -91,13 +92,16 @@ void glWnd::OnPaint()
 	// TODO: 在此处添加消息处理程序代码
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //清除颜色缓存和深度缓存
 
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 	gluLookAt(
 		g_eye[0],	g_eye[1],	g_eye[2],
 		g_look[0],	g_look[1],	g_look[2],
 		g_up[0],	g_up[1],	g_up[2]);
 
 	renderObject();
-#if 0
+
+#if 1
 	s+=0.005;
 	if(s>1.0)
 		s=0.1;
@@ -109,7 +113,7 @@ void glWnd::OnPaint()
 	glRotatef(step,0.0,1.0,0.0);
 	glRotatef(step,0.0,0.0,1.0);
 	glRotatef(step,1.0,0.0,0.0);
-	//	DrawColorBox();
+	DrawColorBox();
 	glPopMatrix();
 	glFlush();
 #endif
@@ -396,4 +400,20 @@ void glWnd::initialize()
 		assert( 0 && "ArchiveManager已被创建! " );
 	}
 
+}
+
+
+
+void glWnd::OnSize(UINT nType, int cx, int cy)
+{
+	CWnd::OnSize(nType, cx, cy);
+
+	// TODO: 在此处添加消息处理程序代码
+	glViewport (0, 0, (GLsizei)(cx), (GLsizei)(cy));				// Reset The Current Viewport
+	glMatrixMode (GL_PROJECTION);										// Select The Projection Matrix
+	glLoadIdentity ();													// Reset The Projection Matrix
+	gluPerspective (45.0f, (GLfloat)(cx)/(GLfloat)(cy),			// Calculate The Aspect Ratio Of The Window
+		1.0f, 100.0f);		
+	glMatrixMode (GL_MODELVIEW);										// Select The Modelview Matrix
+	glLoadIdentity ();			
 }
