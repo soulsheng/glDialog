@@ -249,6 +249,27 @@ void glWnd::DrawColorBox(void)
 
 void glWnd::LoadModel( std::string filename )
 {
+	// cache path
+	std::string filefolderpath = filename;
+	filefolderpath.erase( filename.find_last_of("\\/") , std::string::npos );
+
+	try
+	{
+		ArchiveManager &archmgr = ArchiveManager::getSingleton();
+
+		ArchivePtr parch( new FileSystemArchive(filefolderpath ,"filesystem") );
+
+		parch->load();
+
+		static int weight = 400;
+
+		archmgr.addArchive( weight ++ , parch );
+	}
+	catch (vgFoundationSystem::Exception &e)
+	{
+		AfxMessageBox( e.getFullDescription().c_str() );
+	}
+
 
 	CFile fp;
 
