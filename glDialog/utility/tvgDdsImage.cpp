@@ -1,8 +1,8 @@
 
 #include "StdAfx.h"
-#include "../vgStableHeaders.h"
 #include "tvgDdsImage.h"
-#include "../tvgOpenGLSupport.h"
+#include "tvgOpenGLSupport.h"
+#include "tvgArchiveManager.h"
 
 namespace vgFoundationSystem {
 	

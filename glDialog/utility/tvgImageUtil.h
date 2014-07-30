@@ -16,8 +16,8 @@
 #include "tvgImageRect.h"
 #include <ximage.h>
 #include <squish.h>
-
-
+#include "vgfVector2.h"
+#include "tvgImagePos.h"
 
 namespace vgFoundationSystem {
 

@@ -1,6 +1,6 @@
 
 #include "StdAfx.h"
-#include "../vgStableHeaders.h"
+//#include "../vgStableHeaders.h"
 #include "tvgImageRect.h"
 
 

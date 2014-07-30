@@ -9,7 +9,6 @@
 */
 
 #include "StdAfx.h"
-#include "../vgStableHeaders.h"
 #include "tvgImage.h"
 
 
