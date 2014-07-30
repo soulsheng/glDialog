@@ -1,6 +1,5 @@
 
 #include "StdAfx.h"
-#include "../vgStableHeaders.h"
 #include "tvgStreamReader.h"
 #include "tvgStringUtil.h"
 
@@ -70,7 +69,7 @@ namespace vgFoundationSystem {
 		}
 
 		char tmpBuf[VGES_STREAM_TEMP_SIZE];
-		size_t chunkSize = Math::Min(maxCount, (size_t)VGES_STREAM_TEMP_SIZE-1);
+		size_t chunkSize = min(maxCount, (size_t)VGES_STREAM_TEMP_SIZE-1);
 		size_t totalCount = 0;
 		size_t readCount; 
 		while (chunkSize && (readCount = read(tmpBuf, chunkSize)))
@@ -107,7 +106,7 @@ namespace vgFoundationSystem {
 			}
 
 			// Adjust chunkSize for next time
-			chunkSize = Math::Min(maxCount-totalCount, (size_t)VGES_STREAM_TEMP_SIZE-1);
+			chunkSize = min(maxCount-totalCount, (size_t)VGES_STREAM_TEMP_SIZE-1);
 		}
 
 		// Terminate

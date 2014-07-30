@@ -2,7 +2,7 @@
 #ifndef		SINGLETON_H_
 #define		SINGLETON_H_
 
-#include "StdAfx.h"
+//#include "StdAfx.h"
 
 //////////////////////////////////////////////////////////////////////////
 ///The template Singleton implemention. Added by Leven,07-1-22

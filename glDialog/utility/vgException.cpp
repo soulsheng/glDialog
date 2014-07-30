@@ -9,10 +9,8 @@
 */
 
 #include "StdAfx.h"
-#include "vgStableHeaders.h"
 #include "vgException.h"
 
-#include "vgLogManager.h"
 
 
 namespace vgFoundationSystem {
@@ -36,13 +34,7 @@ namespace vgFoundationSystem {
         source( src ),
         file( fil )
     {
-        // Log this error, mask it from debug though since it may be caught and ignored
-        if(LogManager::getSingletonPtr())
-		{
-            LogManager::getSingleton().logMessage(
-				this->getFullDescription(), 
-                LML_CRITICAL, true);
-		}
+       
 
     }
 

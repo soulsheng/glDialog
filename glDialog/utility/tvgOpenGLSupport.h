@@ -12,6 +12,7 @@
 #define __TVGOPENGLSUPPORT_H__
 
 #include "vgPrerequisites.h"
+#include "tvgStringUtil.h"
 
 
 namespace vgFoundationSystem {

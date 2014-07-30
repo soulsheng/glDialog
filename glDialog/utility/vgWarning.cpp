@@ -1,7 +1,6 @@
 
 
 #include "StdAfx.h"
-#include "vgStableHeaders.h"
 #include "vgWarning.h"
 
 
@@ -15,7 +14,6 @@ namespace vgFoundationSystem {
 		source( src )
 	{
 		// Log this error - not any more, allow catchers to do it
-		LogManager::getSingleton().logMessage(this->getFullDescription());
 	}
 	//----------------------------------------------------------------
 	Warning::Warning(int num, const String& desc, const String& src, 
@@ -28,13 +26,7 @@ namespace vgFoundationSystem {
 		file( fil )
 	{
 		// Log this error, mask it from debug though since it may be caught and ignored
-		if(LogManager::getSingletonPtr())
-		{
-			LogManager::getSingleton().logMessage(
-				this->getFullDescription(), 
-				LML_CRITICAL, true);
-		}
-
+		
 	}
 	//----------------------------------------------------------------
 	Warning::Warning(const Warning& rhs)

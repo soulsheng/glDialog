@@ -7,6 +7,7 @@
 
 #include "tvgStreamReader.h"
 #include "vgSharedPtr.h"
+#include "tvgImageUtil.h"
 
 namespace vgFoundationSystem {
 
@@ -49,7 +50,6 @@ namespace vgFoundationSystem {
 		MemoryStreamWriter()
 		{
 			this->setParametersDefault();
-			VG_TRACE("MemoryStreamWriter created!");
 		}
 
 		MemoryStreamWriter( size_t buf_size )
@@ -59,7 +59,6 @@ namespace vgFoundationSystem {
 			this->mIterCurPos = mpBuffer->begin();
 			this->mClosed = false;
 
-			VG_TRACE("MemoryStreamWriter created!");
 		}
 
 		MemoryStreamWriter( size_t buf_size , byte val )
@@ -69,13 +68,11 @@ namespace vgFoundationSystem {
 			this->mIterCurPos = mpBuffer->begin();
 			this->mClosed = false;
 
-			VG_TRACE("MemoryStreamWriter created!");
 		}
 
 		~MemoryStreamWriter()
 		{
 			this->close();
-			VG_TRACE("MemoryStreamWriter deleted!");
 		}
 	
 		virtual StreamWriter& flush( void )
@@ -206,7 +203,6 @@ namespace vgFoundationSystem {
 		FileStreamWriter()
 		{
 			this->setDefault();
-			VG_TRACE("FileStreamWriter construected");
 		}
 
 		// 还是要有文件名。
@@ -224,13 +220,11 @@ namespace vgFoundationSystem {
 		{
 			this->setDefault();
 			this->create( filename );
-			VG_TRACE("FileStreamWriter construected");
 		}
 
 		virtual ~FileStreamWriter()
 		{
 			this->close();
-			VG_TRACE("FileStreamWriter destructed");
 		}
 
 		template<typename T> 
