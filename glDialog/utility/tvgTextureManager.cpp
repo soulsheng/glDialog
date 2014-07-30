@@ -1,7 +1,7 @@
 
 
 #include "StdAfx.h"
-#include "../vgStableHeaders.h"
+//#include "../vgStableHeaders.h"
 #include "tvgTextureManager.h"
 
 

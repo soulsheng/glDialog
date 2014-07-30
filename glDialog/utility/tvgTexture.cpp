@@ -9,8 +9,9 @@
 */
 
 #include "StdAfx.h"
-#include "../vgStableHeaders.h"
+//#include "../vgStableHeaders.h"
 #include "tvgTexture.h"
+#include "tvgOpenGLSupport.h"
 
 
 namespace vgFoundationSystem {
@@ -92,11 +93,7 @@ namespace vgFoundationSystem {
 	Texture::Texture()
 	{
 		this->setParametersDefault();
-		LogManager *plog = LogManager::getSingletonPtr();
-		if ( plog != NULL )
-		{
-			plog->logMessage("tex created");
-		}
+
 	}
 	//----------------------------------------------------------------
 	Texture::Texture( TextureState empty )
@@ -111,11 +108,7 @@ namespace vgFoundationSystem {
 	{
 		this->deleteTexture();
 
-		LogManager *plog = LogManager::getSingletonPtr();
-		if ( plog != NULL )
-		{
-			plog->logMessage("tex deleted");
-		}
+		
 	}
 
 	//----------------------------------------------------------------

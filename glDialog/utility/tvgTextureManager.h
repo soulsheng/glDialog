@@ -3,7 +3,7 @@
 #ifndef __TVGTEXTUREMANAGER_H__
 #define __TVGTEXTUREMANAGER_H__
 
-#include "vgPrerequisites.h"
+//#include "vgPrerequisites.h"
 #include "vgSingleton.h"
 #include "tvgTexture.h"
 #include "tvgTextureBuilder.h"
