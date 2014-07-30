@@ -11,6 +11,7 @@
 #include "tvgArchiveManager.h"
 
 #include "tvgArchive.h"
+#include "vgfColorValue.h"
 
 #include <acimg.h>
 #include <squish.h>
@@ -488,7 +489,7 @@ namespace vgFoundationSystem {
 
 
 
-
+#if 0
 		/**
 			使用A8R8G8B8的方式存储dds.
 				
@@ -502,7 +503,7 @@ namespace vgFoundationSystem {
 		bool  saveDdsUsingA8R8G8B8(const String& ddsfile);
 
 		bool  saveDdsUsingA8R8G8B8( const StreamWriterPtr& pstream );
-
+#endif
 
 	private:
 

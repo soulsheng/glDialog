@@ -1,8 +1,8 @@
 
 
 #include "StdAfx.h"
-#include "../vgStableHeaders.h"
 #include "tvgNormalImage.h"
+#include "tvgOpenGLSupport.h"
 
 
 namespace vgFoundationSystem {
@@ -333,7 +333,7 @@ namespace vgFoundationSystem {
 
 		if ( dformat == DDS_FORMAT_A8R8G8B8 )
 		{
-			return this->saveDdsUsingA8R8G8B8( pstream );
+			return false;//this->saveDdsUsingA8R8G8B8( pstream );
 		}
 
 		// 确认已载入m_Cximage图像.
@@ -477,6 +477,7 @@ namespace vgFoundationSystem {
 
 		return true;
 	}
+#if 0
 	//----------------------------------------------------------------
 	bool NormalImage::saveDdsUsingA8R8G8B8( const String& ddsfile )
 	{
@@ -538,6 +539,7 @@ namespace vgFoundationSystem {
 			return false;
 		}
 	}
+#endif
 	//----------------------------------------------------------------
 	vgFoundationSystem::TexturePtr NormalImage::createUnbindedTexPtr( 
 		const TextureBuildOptionPtr& option /*= TextureBuildOptionPtr::DEFAULT_OPTION */ )
