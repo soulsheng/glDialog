@@ -66,3 +66,20 @@
 #pragma   comment(lib,"opengl32.lib")
 #pragma   comment(lib ,"glew32.lib")
 #pragma   comment(lib ,"glu32.lib")
+
+#pragma message("  now input cximage.lib...")
+#ifdef _DEBUG
+#pragma comment(lib,"cximaged.lib")
+#else
+#pragma comment(lib,"cximage.lib")
+#endif
+#pragma comment(lib,"jbig.lib")
+#pragma comment(lib,"LibJPEG.lib")
+#pragma comment(lib,"LibPNG.lib")
+#pragma comment(lib,"libTiff.lib")
+#pragma comment(lib,"zlib.lib")
+#pragma comment(lib,"libjasper.lib")
+#pragma comment(lib,"j2k.lib")
+
+#pragma message("  now input squish.lib...")
+#pragma comment(lib,"squish.lib")

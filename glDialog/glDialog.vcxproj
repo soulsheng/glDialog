@@ -51,12 +51,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./model;./utility;../Dependence/include/cximage;../Dependence/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>
       </AdditionalDependencies>
+      <AdditionalLibraryDirectories>../Dependence/lib/cximage;../Dependence/lib;</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -77,6 +79,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./model;./utility;../Dependence/include/cximage;../Dependence/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -85,6 +88,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>
       </AdditionalDependencies>
+      <AdditionalLibraryDirectories>../Dependence/lib/cximage;../Dependence/lib;</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -101,23 +105,93 @@
     <None Include="ReadMe.txt" />
     <None Include="res\glDialog.ico" />
     <None Include="res\glDialog.rc2" />
+    <None Include="utility\tvgImagePos.inl" />
+    <None Include="utility\tvgImageRect.inl" />
+    <None Include="utility\tvgTexture.inl" />
+    <None Include="utility\tvgTextureManager.inl" />
+    <None Include="utility\vgfVector2Impl.inl" />
+    <None Include="utility\vgfVector3Impl.inl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="glDialog.h" />
     <ClInclude Include="glDialogDlg.h" />
     <ClInclude Include="glWnd.h" />
+    <ClInclude Include="model\ModleStruct.h" />
+    <ClInclude Include="model\vgBoundryBox.h" />
+    <ClInclude Include="model\vgNode.h" />
+    <ClInclude Include="model\vgObjNode.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="utility\tvgArchive.h" />
+    <ClInclude Include="utility\tvgArchiveDeclaration.h" />
+    <ClInclude Include="utility\tvgArchiveFactory.h" />
+    <ClInclude Include="utility\tvgArchiveManager.h" />
+    <ClInclude Include="utility\tvgArchiveSaver.h" />
+    <ClInclude Include="utility\tvgDdsImage.h" />
+    <ClInclude Include="utility\tvgFileStreamReader.h" />
+    <ClInclude Include="utility\tvgImage.h" />
+    <ClInclude Include="utility\tvgImageFactory.h" />
+    <ClInclude Include="utility\tvgImagePos.h" />
+    <ClInclude Include="utility\tvgImageRect.h" />
+    <ClInclude Include="utility\tvgImageUtil.h" />
+    <ClInclude Include="utility\tvgNormalImage.h" />
+    <ClInclude Include="utility\tvgOpenGLSupport.h" />
+    <ClInclude Include="utility\tvgStreamFactory.h" />
+    <ClInclude Include="utility\tvgStreamReader.h" />
+    <ClInclude Include="utility\tvgStreamWriter.h" />
+    <ClInclude Include="utility\tvgString.h" />
+    <ClInclude Include="utility\tvgStringUtil.h" />
+    <ClInclude Include="utility\tvgTexture.h" />
+    <ClInclude Include="utility\tvgTextureBuilder.h" />
+    <ClInclude Include="utility\tvgTextureManager.h" />
+    <ClInclude Include="utility\tvgZipArchive.h" />
+    <ClInclude Include="utility\vgDdsDeclaration.h" />
+    <ClInclude Include="utility\vgException.h" />
+    <ClInclude Include="utility\vgfColorValue.h" />
+    <ClInclude Include="utility\vgfVector2.h" />
+    <ClInclude Include="utility\vgfVector3.h" />
+    <ClInclude Include="utility\vgPrerequisites.h" />
+    <ClInclude Include="utility\vgSingleton.h" />
+    <ClInclude Include="utility\vgWarning.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glDialog.cpp" />
     <ClCompile Include="glDialogDlg.cpp" />
     <ClCompile Include="glWnd.cpp" />
+    <ClCompile Include="model\vgBoundryBox.cpp" />
+    <ClCompile Include="model\vgNode.cpp" />
+    <ClCompile Include="model\vgObjNode.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="utility\tvgArchive.cpp" />
+    <ClCompile Include="utility\tvgArchiveFactory.cpp" />
+    <ClCompile Include="utility\tvgArchiveManager.cpp" />
+    <ClCompile Include="utility\tvgArchiveSaver.cpp" />
+    <ClCompile Include="utility\tvgDdsImage.cpp" />
+    <ClCompile Include="utility\tvgFileStreamReader.cpp" />
+    <ClCompile Include="utility\tvgImage.cpp" />
+    <ClCompile Include="utility\tvgImageFactory.cpp" />
+    <ClCompile Include="utility\tvgImagePos.cpp" />
+    <ClCompile Include="utility\tvgImageRect.cpp" />
+    <ClCompile Include="utility\tvgImageUtil.cpp" />
+    <ClCompile Include="utility\tvgNormalImage.cpp" />
+    <ClCompile Include="utility\tvgOpenGLSupport.cpp" />
+    <ClCompile Include="utility\tvgStreamReader.cpp" />
+    <ClCompile Include="utility\tvgString.cpp" />
+    <ClCompile Include="utility\tvgStringUtil.cpp" />
+    <ClCompile Include="utility\tvgTexture.cpp" />
+    <ClCompile Include="utility\tvgTextureBuilder.cpp" />
+    <ClCompile Include="utility\tvgTextureManager.cpp" />
+    <ClCompile Include="utility\tvgZipArchive.cpp" />
+    <ClCompile Include="utility\vgException.cpp" />
+    <ClCompile Include="utility\vgfColorValue.cpp" />
+    <ClCompile Include="utility\vgfVector2.cpp" />
+    <ClCompile Include="utility\vgfVector3.cpp" />
+    <ClCompile Include="utility\vgSingleton.cpp" />
+    <ClCompile Include="utility\vgWarning.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="glDialog.rc" />
