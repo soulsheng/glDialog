@@ -48,7 +48,7 @@ namespace vgFoundationSystem{
 		
 	};
 	
-	class vgNode : public CObject  
+	class vgNode
 	{
 	public:
 		int        m_id;

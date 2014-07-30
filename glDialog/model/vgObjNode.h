@@ -12,6 +12,9 @@
 #include "ModleStruct.h"
 #include "vgNode.h"
 #include "vgBoundryBox.h"
+
+#include <afx.h>
+
 namespace vgFoundationSystem{
 	
 	class vgObject : public vgNode  
@@ -23,8 +26,6 @@ namespace vgFoundationSystem{
 	public:
 
 		void RenderWithoutTex(float r, float g, float b);
-		void buildShadowVolume();
-		void update_ForShadowEveryTime();
 		void render_ForShadow();
 		void WriteDDS(CFile &fp , const string &filename);
 		unsigned long PositDataToNode(char *data);

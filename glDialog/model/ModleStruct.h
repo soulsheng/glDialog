@@ -1,8 +1,7 @@
 #ifndef _MODLESTRUCT_H_
 #define _MODLESTRUCT_H_
 
-#include "StdAfx.h"
-#include "liwensrc/tvgTexture.h"
+#include "tvgTexture.h"
 
 class TexturePtr;
 ///obj材质中最基本的信息，若需要支持材质球中的调整，需重新加入一些成员

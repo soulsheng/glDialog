@@ -3,7 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
-#include "FrameWork.h"
+//#include "FrameWork.h"
 #include "vgNode.h"
 
 #ifdef _DEBUG

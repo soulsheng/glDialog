@@ -12,8 +12,9 @@
 #include <math.h>
 #include <cassert>
 
+#include "vgfVector3.h"
 
-typedef float	Real;
+
 namespace vgFoundationSystem{
 	
 	/////////////////////////////////////////////////////////////////////////////////
