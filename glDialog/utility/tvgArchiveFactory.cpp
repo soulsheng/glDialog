@@ -1,6 +1,5 @@
 
 #include "StdAfx.h"
-#include "../vgStableHeaders.h"
 #include "tvgArchiveFactory.h"
 
 

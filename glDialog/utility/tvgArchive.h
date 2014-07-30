@@ -37,7 +37,7 @@ namespace vgFoundationSystem {
         to benefit from OGRE's automatic searching of multiple file locations 
         for the resources you are looking for.
     */
-    class VgesExport Archive  
+    class Archive  
     {
     protected:
         /// Archive name

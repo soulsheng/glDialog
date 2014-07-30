@@ -42,24 +42,18 @@ namespace vgFoundationSystem {
 
 				String currentDir(buf);
 
-				LogManager::getSingleton().logMessage( 
-					"Current Directory is : "  + currentDir + "\n now creating default FileSystem Archive...");
-
 				// 考虑这里是否加入容错机制。
 				FileSystemArchive* pCurrentFileSys = 
 						new FileSystemArchive( currentDir ,"FileSystem" );
 
 				this->addArchive( DEFAULT_FILESYSTEM_WEIGHT , ArchivePtr( pCurrentFileSys ) );
 				
-				LogManager::getSingleton().logMessage( 
-					"Current Directory added.");
+			
 			}
 
-			VG_TRACE("ArchiveManager created.");
 		}
 		~ArchiveManager()
 		{
-			VG_TRACE("ArchiveManager deleted.");
 		}
 		//----------------------------------------------------------------
 		bool addArchive( const int& search_weight , const ArchivePtr& pArchive )

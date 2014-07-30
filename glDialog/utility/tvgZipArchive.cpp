@@ -1,6 +1,5 @@
 
 #include "StdAfx.h"
-#include "../vgStableHeaders.h"
 #include "tvgZipArchive.h"
 
 #include <zzip/lib.h>
@@ -111,11 +110,7 @@ namespace vgFoundationSystem {
             zzip_file_open(mZzipDir, filename.c_str(), ZZIP_ONLYZIP | ZZIP_CASELESS);
         if (!zzipFile)
 		{
-            int zerr = zzip_error(mZzipDir);
-            String zzDesc = getZzipErrorDescription((zzip_error_t)zerr);
-            LogManager::getSingleton().logMessage(
-                mName + " - Unable to open file " + filename + ", error was '" + zzDesc + "'");
-                
+           
 			// return null pointer
 			return StreamReaderPtr();
 		}

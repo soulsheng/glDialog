@@ -8,7 +8,8 @@
 #include "tvgStreamFactory.h"
 #include "tvgArchiveDeclaration.h"
 //#include "../vgTrace.h"
-
+#include "tvgImage.h"
+#include "tvgImageFactory.h"
 
 namespace vgFoundationSystem {
 
@@ -38,11 +39,9 @@ namespace vgFoundationSystem {
 
 			this->mMetaFileListPtr.bind( new MetaFileList() );
 
-			VG_TRACE( "ArchiveSaver created!");
 		}
 		~ArchiveSaver()
 		{
-			VG_TRACE( "ArchiveSaver deleted!");
 		}
 	
 
@@ -62,7 +61,6 @@ namespace vgFoundationSystem {
 
 			// 写入文件头内容。
 			this->mOutputStreamPtr->write( (const char*)&mHeader , sizeof( Header ) );
-			VG_TRACE( sizeof(Header) );
 
 			// 存储图像数据的写入起始点。
 			whole_data_beg = this->mOutputStreamPtr->tell();
