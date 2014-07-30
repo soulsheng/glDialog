@@ -18,7 +18,7 @@ glWnd::glWnd()
 	//	视点位置
 	g_eye[0] = 0.0f;	
 	g_eye[1] = 0.0f;	
-	g_eye[2] = -40.0f;	
+	g_eye[2] = 1000.0f;	
 
 	//	焦点位置
 	g_look[0] = 0.0f;	
@@ -434,7 +434,7 @@ void glWnd::OnSize(UINT nType, int cx, int cy)
 	glMatrixMode (GL_PROJECTION);										// Select The Projection Matrix
 	glLoadIdentity ();													// Reset The Projection Matrix
 	gluPerspective (45.0f, (GLfloat)(cx)/(GLfloat)(cy),			// Calculate The Aspect Ratio Of The Window
-		1.0f, 100.0f);		
+		1.0f, 10000.0f);		
 	glMatrixMode (GL_MODELVIEW);										// Select The Modelview Matrix
 	glLoadIdentity ();			
 }
