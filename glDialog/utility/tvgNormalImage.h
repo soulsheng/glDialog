@@ -13,7 +13,7 @@
 #include "tvgArchive.h"
 #include "vgfColorValue.h"
 
-#include <acimg.h>
+//#include <acimg.h>
 #include <squish.h>
 
 
