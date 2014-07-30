@@ -7,8 +7,11 @@
 /Debug
 /glDialog/Debug
 /glDialog/Release
-/Release
 /glDialog/*.aps
 /*.opensdf
 /*.sdf
 /ipch
+/Release/*.exp
+/Release/*.exe
+/Release/*.lib
+/Release/*.pdb
