@@ -78,6 +78,7 @@ int glWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	glClearColor(0.5f,0.6f,0.8f,1.0f);
 	
+	initialize();
 
 
 	return 0;
@@ -360,4 +361,39 @@ void glWnd::cleanup()
 		delete m_objects[i];
 	}
 	m_objects.clear();
+
+	if ( m_pTextureManager != NULL )
+	{
+		delete m_pTextureManager;
+	}
+
+	if ( m_pArchiveManger != NULL )
+	{
+		delete m_pArchiveManger;
+	}
+}
+
+void glWnd::initialize()
+{
+
+	// Create Texture manager if there is no Texture manager yet
+	if( vgFoundationSystem::TextureManager::getSingletonPtr() == 0 )
+	{
+		m_pTextureManager = new TextureManager();
+	}
+	else 
+	{
+		assert( 0 && "TextureManager已被创建! " );
+	}
+
+	// Create Archive manager if there is no Archive manager yet
+	if( vgFoundationSystem::ArchiveManager::getSingletonPtr() == 0 )
+	{
+		m_pArchiveManger = new ArchiveManager( true );
+	}
+	else 
+	{
+		assert( 0 && "ArchiveManager已被创建! " );
+	}
+
 }

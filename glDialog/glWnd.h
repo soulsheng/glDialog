@@ -5,6 +5,9 @@
 
 #include "vgObjNode.h"
 
+#include "tvgArchiveManager.h"
+#include "tvgTextureManager.h"
+
 using namespace vgFoundationSystem;
 
 // glWnd
@@ -22,6 +25,7 @@ public:
 	void AddObject( vgObject* pObject );
 	void renderObject( );
 	void cleanup();
+	void initialize();
 
 	int MySetPixelFormat(HDC hdc);
 	void DrawColorBox(void);
@@ -35,6 +39,9 @@ public:
 	float	g_up[3];		//	Í·¶¥·¨Ïò
 
 	std::vector<vgObject*>	m_objects;
+
+	TextureManager	*m_pTextureManager;
+	ArchiveManager *m_pArchiveManger;
 
 protected:
 	DECLARE_MESSAGE_MAP()
