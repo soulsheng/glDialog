@@ -15,6 +15,7 @@
 //#include "vgfMath.h"
 #include <sstream>
 #include <string>
+#include <assert.h>
 
 namespace vgFoundationSystem {
 

@@ -3,6 +3,7 @@
 #define		SINGLETON_H_
 
 //#include "StdAfx.h"
+#include <assert.h>
 
 //////////////////////////////////////////////////////////////////////////
 ///The template Singleton implemention. Added by Leven,07-1-22
