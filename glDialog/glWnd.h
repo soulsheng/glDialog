@@ -8,6 +8,8 @@
 #include "tvgArchiveManager.h"
 #include "tvgTextureManager.h"
 
+#include "glScene.h"
+
 using namespace vgFoundationSystem;
 
 // glWnd
@@ -22,8 +24,6 @@ public:
 
 	// add member function and variable
 	void LoadModel( std::string filename );
-	void AddObject( vgObject* pObject );
-	void renderObject( );
 	void cleanup();
 	void initialize();
 
@@ -38,10 +38,10 @@ public:
 	float	g_dir[3];		//	视线方向
 	float	g_up[3];		//	头顶法向
 
-	std::vector<vgObject*>	m_objects;
-
 	TextureManager	*m_pTextureManager;
 	ArchiveManager *m_pArchiveManger;
+
+	glScene	m_scene;
 
 protected:
 	DECLARE_MESSAGE_MAP()

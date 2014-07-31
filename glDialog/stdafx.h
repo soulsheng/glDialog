@@ -68,11 +68,7 @@
 #pragma   comment(lib ,"glu32.lib")
 
 #pragma message("  now input cximage.lib...")
-#ifdef _DEBUG
-#pragma comment(lib,"cximaged.lib")
-#else
-#pragma comment(lib,"cximage.lib")
-#endif
+// cximage.lib is add at project property . link . input to ignore _CtrIsValidHeapPointer error
 #pragma comment(lib,"jbig.lib")
 #pragma comment(lib,"LibJPEG.lib")
 #pragma comment(lib,"LibPNG.lib")

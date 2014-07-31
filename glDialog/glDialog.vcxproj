@@ -56,8 +56,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>cximaged.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>../Dependence/lib/cximage;../Dependence/lib;</AdditionalLibraryDirectories>
     </Link>
     <Midl>
@@ -86,8 +85,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>cximage.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>../Dependence/lib/cximage;../Dependence/lib;</AdditionalLibraryDirectories>
     </Link>
     <Midl>
@@ -115,6 +113,7 @@
   <ItemGroup>
     <ClInclude Include="glDialog.h" />
     <ClInclude Include="glDialogDlg.h" />
+    <ClInclude Include="glScene.h" />
     <ClInclude Include="glWnd.h" />
     <ClInclude Include="model\ModleStruct.h" />
     <ClInclude Include="model\vgBoundryBox.h" />
@@ -158,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="glDialog.cpp" />
     <ClCompile Include="glDialogDlg.cpp" />
+    <ClCompile Include="glScene.cpp" />
     <ClCompile Include="glWnd.cpp" />
     <ClCompile Include="model\vgBoundryBox.cpp" />
     <ClCompile Include="model\vgNode.cpp" />
