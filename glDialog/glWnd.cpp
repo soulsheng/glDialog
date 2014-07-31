@@ -14,19 +14,34 @@ glWnd::glWnd()
 {
 	step = 0.0;
 	s = 0.1;
+
+	//	视点位置
+	g_eye[0] = 0.0f;	
+	g_eye[1] = 0.0f;	
+	g_eye[2] = 10.0f;	
+
+	//	视线方向
+	g_dir[0] = 0.0f;	
+	g_dir[1] = 0.0f;	
+	g_dir[2] = -1.0f;	// 默认朝屏幕里面看
+
+	//	头顶法向
+	g_up[0] = 0.0f;		
+	g_up[1] = 1.0f;		// 头顶向上，不歪
+	g_up[2] = 0.0f;		
+
 }
 
 glWnd::~glWnd()
 {
-	wglMakeCurrent(NULL,NULL);
-	wglDeleteContext(hglrc);//删除渲染描述表
-	::ReleaseDC(m_hWnd,hdc);//释放设备描述表
+	cleanup();
 }
 
 
 BEGIN_MESSAGE_MAP(glWnd, CWnd)
 	ON_WM_CREATE()
 	ON_WM_PAINT()
+	ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 
@@ -42,14 +57,8 @@ int glWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 
 	// TODO:  在此添加您专用的创建代码
-	MySetPixelFormat(::GetDC(m_hWnd));
+	initialize();
 
-	// 获得绘图描述表
-	hdc = ::GetDC(m_hWnd);
-	// 创建渲染描述表
-	hglrc = wglCreateContext(hdc);
-	// 使绘图描述表为当前调用现程的当前绘图描述表
-	wglMakeCurrent(hdc, hglrc); 
 
 	return 0;
 }
@@ -60,6 +69,13 @@ void glWnd::OnPaint()
 	//CPaintDC dc(this); // device context for painting
 	// TODO: 在此处添加消息处理程序代码
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //清除颜色缓存和深度缓存
+	
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	gluLookAt(
+		g_eye[0],	g_eye[1],	g_eye[2],
+		g_eye[0] + g_dir[0],	g_eye[1] + g_dir[1],	g_eye[2] + g_dir[2],
+		g_up[0],	g_up[1],	g_up[2]);
 
 	s+=0.005;
 	if(s>1.0)
@@ -204,4 +220,47 @@ void glWnd::DrawColorBox(void)
 
 	glEnd();
 
+}
+
+void glWnd::cleanup()
+{
+	wglMakeCurrent(NULL,NULL);
+	wglDeleteContext(hglrc);//删除渲染描述表
+	::ReleaseDC(m_hWnd,hdc);//释放设备描述表
+}
+
+void glWnd::initialize()
+{
+	MySetPixelFormat(::GetDC(m_hWnd));
+
+	// 获得绘图描述表
+	hdc = ::GetDC(m_hWnd);
+	// 创建渲染描述表
+	hglrc = wglCreateContext(hdc);
+	// 使绘图描述表为当前调用现程的当前绘图描述表
+	wglMakeCurrent(hdc, hglrc); 
+
+	// 初始化Glew
+	GLenum err = glewInit();
+	if (GLEW_OK != err)
+	{
+		/* Problem: glewInit failed, something is seriously wrong. */
+		AfxMessageBox( "glewInit failed, something is seriously wrong." );
+	}
+
+	glClearColor(0.5f,0.6f,0.8f,1.0f);
+}
+
+void glWnd::OnSize(UINT nType, int cx, int cy)
+{
+	CWnd::OnSize(nType, cx, cy);
+
+	// TODO: 在此处添加消息处理程序代码
+	glViewport (0, 0, (GLsizei)(cx), (GLsizei)(cy));				// Reset The Current Viewport
+	glMatrixMode (GL_PROJECTION);										// Select The Projection Matrix
+	glLoadIdentity ();													// Reset The Projection Matrix
+	gluPerspective (45.0f, (GLfloat)(cx)/(GLfloat)(cy),			// Calculate The Aspect Ratio Of The Window
+		1.0f, 1000.0f);		
+	glMatrixMode (GL_MODELVIEW);										// Select The Modelview Matrix
+	glLoadIdentity ();			
 }
