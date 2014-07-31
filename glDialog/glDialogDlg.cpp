@@ -160,27 +160,35 @@ HCURSOR CglDialogDlg::OnQueryDragIcon()
 }
 
 
-
-void CglDialogDlg::OnBnClickedLoadModel()
+std::string CglDialogDlg::getFileFromDialog( std::string ext )
 {
-	// TODO: 在此添加控件通知处理程序代码
-
-	CString DefExt;
+	std::string DefExt;
 
 	std::string filepath;
 
 
-	DefExt.Format("%s","mod文件(*.mod)|*.mod|");
+	DefExt = ext + "文件(*." + ext + ")|*." + ext + "|)";
+	// DefExt.Format("%s","mod文件(*.mod)|*.mod|");
 
 	///CFileDialog第一个参数若为true，为打开文件对话框,该段基于mfc
-	CFileDialog dlgmodelFile(true,"mod",NULL,OFN_HIDEREADONLY|OFN_CREATEPROMPT|OFN_NONETWORKBUTTON,DefExt);
+	CFileDialog dlgmodelFile(true,
+		ext.c_str(),NULL,
+		OFN_HIDEREADONLY|OFN_CREATEPROMPT|OFN_NONETWORKBUTTON,
+		DefExt.c_str() );
 
-	dlgmodelFile.m_ofn.lpstrTitle="模型";
+	dlgmodelFile.m_ofn.lpstrTitle="打开";
 
 	if(dlgmodelFile.DoModal()==IDOK)
 	{
 		filepath = dlgmodelFile.GetPathName();
 	}
+
+	return filepath;
+}
+void CglDialogDlg::OnBnClickedLoadModel()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	std::string filepath = getFileFromDialog( "mod" );
 
 	if (filepath.empty())
 	{

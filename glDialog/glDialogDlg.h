@@ -21,6 +21,7 @@ public:
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV 支持
 
+	std::string getFileFromDialog( std::string ext );	// 获取文件路径
 
 // 实现
 protected:
