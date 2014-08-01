@@ -10,7 +10,33 @@
 
 using namespace vgFoundationSystem;
 
-// glWnd
+// glScene
+
+struct scenetreenode
+{
+public:
+
+	scenetreenode *lchild;
+	scenetreenode *rchild;
+	//add
+	scenetreenode *lupchild;
+	scenetreenode *rupchild;
+
+	scenetreenode *paraent;
+	vgBoundryBox aabb;
+	Vector3 centerpoint;
+	int NumofNode;
+
+	bool m_isdivided;
+	bool b_Lhas, b_Rhas, b_LUPhas, b_RUPhas;
+	int m_depth;
+	vector<int> NodeID;
+
+	int NumofNodepface;                  //  结点面数
+
+	unsigned long offset;
+	unsigned long size;
+};
 
 class glScene
 {
@@ -20,6 +46,7 @@ public:
 	virtual ~glScene();
 
 	// add member function and variable
+	void OpenIOI( std::string filename );
 	void LoadModel( std::string filename );
 	void AddObject( vgObject* pObject );
 	void renderObject( );
@@ -28,8 +55,19 @@ public:
 	void render();
 
 protected:
+	void skipByte( CFile &fp, int nByteCount );
+
+	void ReadDataToScene(CFile &fp, scenetreenode *node);
+	unsigned long AddNodeFromVgFile( char *data );
+	void GenTreefromFile(char *data , scenetreenode *node);
+	void FreeNode(scenetreenode *node);
+
+protected:
 	
 	std::vector<vgObject*>	m_objects;
+	scenetreenode rootnode;
+
+	long ReadFilePos;
 
 };
 

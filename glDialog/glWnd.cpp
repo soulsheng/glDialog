@@ -306,7 +306,40 @@ void glWnd::OnSize(UINT nType, int cx, int cy)
 	glLoadIdentity ();			
 }
 
+void glWnd::cachePath( std::string filename )
+{
+	// cache path
+	std::string filefolderpath = filename;
+	filefolderpath.erase( filename.find_last_of("\\/") , std::string::npos );
+
+	try
+	{
+		ArchiveManager &archmgr = ArchiveManager::getSingleton();
+
+		ArchivePtr parch( new FileSystemArchive(filefolderpath ,"filesystem") );
+
+		parch->load();
+
+		static int weight = 400;
+
+		archmgr.addArchive( weight ++ , parch );
+	}
+	catch (vgFoundationSystem::Exception &e)
+	{
+		AfxMessageBox( e.getFullDescription().c_str() );
+	}
+}
+
 void glWnd::LoadModel( std::string filename )
 {
+	cachePath( filename );
+
 	m_scene.LoadModel( filename );
+}
+
+void glWnd::OpenIOI( std::string filename )
+{
+	cachePath( filename );
+
+	m_scene.OpenIOI( filename );
 }

@@ -23,6 +23,8 @@ public:
 	virtual ~glWnd();
 
 	// add member function and variable
+	void cachePath( std::string filename );
+	void OpenIOI( std::string filename );
 	void LoadModel( std::string filename );
 	void cleanup();
 	void initialize();
