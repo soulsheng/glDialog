@@ -36,6 +36,7 @@ public:
 
 	unsigned long offset;
 	unsigned long size;
+	scenetreenode();
 };
 
 class glScene

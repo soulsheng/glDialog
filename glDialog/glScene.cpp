@@ -482,3 +482,22 @@ void glScene::FreeNode( scenetreenode *node )
 		node = NULL;
 	}
 }
+
+scenetreenode::scenetreenode()
+{
+	paraent = NULL;
+	m_depth = 1;
+	m_isdivided = true;
+	NumofNode = 0;
+	NumofNodepface = 0 ;
+
+	lchild = NULL;
+	rchild = NULL;
+	lupchild = NULL;
+	rupchild = NULL;
+
+	b_Lhas = false;
+	b_Rhas = false;
+	b_RUPhas = false;
+	b_LUPhas = false;
+}
