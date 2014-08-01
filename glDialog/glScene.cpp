@@ -156,8 +156,38 @@ void glScene::skipByte( CFile &fp, int nByteCount )
 	delete [] nByteSkip;
 }
 
+void glScene::OpenIOImage( std::string filename )
+{
+	string ImgPathName(filename);
+
+	std::string::size_type kk = ImgPathName.length();
+
+	ImgPathName.erase(kk - 3, std::string::npos);
+
+	ImgPathName = ImgPathName + "ioimg";
+
+	try
+	{
+		vgFoundationSystem::ArchiveManager &archmgr = vgFoundationSystem::ArchiveManager::getSingleton();
+
+		vgFoundationSystem::ArchivePtr parch( new vgFoundationSystem::VgimgArchive(ImgPathName ,"ioimg") );
+
+		parch->load();
+
+		archmgr.addArchive( 300, parch );
+
+		//			VG_TRACE( archmgr.getDetails() );
+	}
+	catch (vgFoundationSystem::Exception &e)
+	{
+		MessageBox( NULL , e.getFullDescription().c_str() , "ERROR" , MB_OK );
+	}
+}
+
 void glScene::OpenIOI( std::string filename )
 {
+	OpenIOImage( filename );
+
 	CFile pfile;
 	if (!pfile.Open(filename.c_str() , CFile::modeRead))
 	{

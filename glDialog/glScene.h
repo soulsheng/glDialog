@@ -48,6 +48,7 @@ public:
 
 	// add member function and variable
 	void OpenIOI( std::string filename );
+	void OpenIOImage( std::string filename );
 	void LoadModel( std::string filename );
 	void AddObject( vgObject* pObject );
 	void renderObject( );
