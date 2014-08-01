@@ -64,6 +64,7 @@ BEGIN_MESSAGE_MAP(CglDialogDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BTN_LoadModel, &CglDialogDlg::OnBnClickedLoadModel)
+	ON_BN_CLICKED(IDC_BTN_OPENIOI, &CglDialogDlg::OnBnClickedBtnOpenIOI)
 END_MESSAGE_MAP()
 
 
@@ -196,4 +197,18 @@ void CglDialogDlg::OnBnClickedLoadModel()
 	}
 
 	m_Display.LoadModel( filepath ) ;
+}
+
+
+void CglDialogDlg::OnBnClickedBtnOpenIOI()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	std::string filepath = getFileFromDialog( "ioi" );
+
+	if (filepath.empty())
+	{
+		return;
+	}
+
+	m_Display.OpenIOI( filepath ) ;
 }
