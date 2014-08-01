@@ -254,7 +254,7 @@ void glWnd::initialize()
 	// Create Texture manager if there is no Texture manager yet
 	if( vgFoundationSystem::TextureManager::getSingletonPtr() == 0 )
 	{
-		m_pTextureManager = new TextureManager();
+		m_pTextureManager = new vgFoundationSystem::TextureManager();
 	}
 	else 
 	{
@@ -264,7 +264,7 @@ void glWnd::initialize()
 	// Create Archive manager if there is no Archive manager yet
 	if( vgFoundationSystem::ArchiveManager::getSingletonPtr() == 0 )
 	{
-		m_pArchiveManger = new ArchiveManager( true );
+		m_pArchiveManger = new vgFoundationSystem::ArchiveManager( true );
 	}
 	else 
 	{
@@ -298,9 +298,9 @@ void glWnd::cachePath( std::string filename )
 
 	try
 	{
-		ArchiveManager &archmgr = ArchiveManager::getSingleton();
+		vgFoundationSystem::ArchiveManager &archmgr = vgFoundationSystem::ArchiveManager::getSingleton();
 
-		ArchivePtr parch( new FileSystemArchive(filefolderpath ,"filesystem") );
+		vgFoundationSystem::ArchivePtr parch( new vgFoundationSystem::FileSystemArchive(filefolderpath ,"filesystem") );
 
 		parch->load();
 

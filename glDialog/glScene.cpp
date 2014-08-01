@@ -30,7 +30,7 @@ void glScene::LoadModel( std::string filename )
 
 	long *ObjPosIndex;
 
-	vgObject *pobj;
+	vgFoundationSystem::vgObject *pobj;
 
 	if (!fp.Open(filename.c_str() , CFile::modeRead))
 	{
@@ -67,7 +67,7 @@ void glScene::LoadModel( std::string filename )
 	for (int i = 0; i < numOfObj ; i++)
 	{
 
-		pobj = new vgObject;
+		pobj = new vgFoundationSystem::vgObject;
 
 		long objchunklength;
 
@@ -119,7 +119,7 @@ void glScene::LoadModel( std::string filename )
 
 }
 
-void glScene::AddObject( vgObject* pObject )
+void glScene::AddObject( vgFoundationSystem::vgObject* pObject )
 {
 	m_objects.push_back( pObject );
 }
@@ -353,7 +353,7 @@ unsigned long glScene::AddNodeFromVgFile( char *data )
 
 	// if (Type == VG_OBJECT)                   //vgObject
 	{
-		vgObject *objnode = new vgObject;
+		vgFoundationSystem::vgObject *objnode = new vgFoundationSystem::vgObject;
 
 		pos += objnode->PositDataToNode(data + pos);
 

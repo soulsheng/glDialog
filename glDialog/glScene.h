@@ -8,7 +8,7 @@
 #include "tvgArchiveManager.h"
 #include "tvgTextureManager.h"
 
-using namespace vgFoundationSystem;
+//using namespace vgFoundationSystem;
 
 // glScene
 
@@ -23,8 +23,8 @@ public:
 	scenetreenode *rupchild;
 
 	scenetreenode *paraent;
-	vgBoundryBox aabb;
-	Vector3 centerpoint;
+	vgFoundationSystem::vgBoundryBox aabb;
+	vgFoundationSystem::Vector3 centerpoint;
 	int NumofNode;
 
 	bool m_isdivided;
@@ -59,7 +59,7 @@ public:
 	void OpenIOI( std::string filename );
 	void OpenIOImage( std::string filename );
 	void LoadModel( std::string filename );
-	void AddObject( vgObject* pObject );
+	void AddObject( vgFoundationSystem::vgObject* pObject );
 	void renderObject( );
 	void cleanup();
 	void initialize(cameranode *pCamera);
@@ -75,7 +75,7 @@ protected:
 
 protected:
 	
-	std::vector<vgObject*>	m_objects;
+	std::vector<vgFoundationSystem::vgObject*>	m_objects;
 	scenetreenode rootnode;
 
 	long ReadFilePos;

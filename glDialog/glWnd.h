@@ -10,7 +10,7 @@
 
 #include "glScene.h"
 
-using namespace vgFoundationSystem;
+//using namespace vgFoundationSystem;
 
 // glWnd
 
@@ -38,8 +38,8 @@ public:
 
 	cameranode		m_camera;
 
-	TextureManager	*m_pTextureManager;
-	ArchiveManager *m_pArchiveManger;
+	vgFoundationSystem::TextureManager	*m_pTextureManager;
+	vgFoundationSystem::ArchiveManager *m_pArchiveManger;
 
 	glScene	m_scene;
 
