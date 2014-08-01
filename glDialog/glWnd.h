@@ -9,6 +9,7 @@
 #include "tvgTextureManager.h"
 
 #include "glScene.h"
+#include "oceanFFT/COceanSim.h"
 
 //using namespace vgFoundationSystem;
 
@@ -42,6 +43,7 @@ public:
 	vgFoundationSystem::ArchiveManager *m_pArchiveManger;
 
 	glScene	m_scene;
+	COceanSim	m_ocean;
 
 protected:
 	DECLARE_MESSAGE_MAP()

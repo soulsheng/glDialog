@@ -5,6 +5,7 @@
 #include "glDialog.h"
 #include "glWnd.h"
 
+#define CLIP_FAR_DISTANCE	100000	// 10000
 
 // glWnd
 
@@ -21,6 +22,7 @@ glWnd::glWnd()
 
 glWnd::~glWnd()
 {
+	m_ocean.cleanUp();
 	cleanup();
 }
 
@@ -62,7 +64,7 @@ void glWnd::OnPaint()
 	m_camera.look();
 
 	m_scene.render();
-
+	m_ocean.render();
 #if 1
 	s+=0.005;
 	if(s>1.0)
@@ -272,6 +274,8 @@ void glWnd::initialize()
 	}
 
 	m_scene.initialize( &m_camera );
+	m_ocean.initialize();
+	m_ocean.setVisible( true );
 }
 
 
@@ -285,7 +289,7 @@ void glWnd::OnSize(UINT nType, int cx, int cy)
 	glMatrixMode (GL_PROJECTION);										// Select The Projection Matrix
 	glLoadIdentity ();													// Reset The Projection Matrix
 	gluPerspective (45.0f, (GLfloat)(cx)/(GLfloat)(cy),			// Calculate The Aspect Ratio Of The Window
-		1.0f, 10000.0f);		
+		1.0f, CLIP_FAR_DISTANCE );		
 	glMatrixMode (GL_MODELVIEW);										// Select The Modelview Matrix
 	glLoadIdentity ();			
 }
