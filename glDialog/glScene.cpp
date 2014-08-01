@@ -531,3 +531,30 @@ scenetreenode::scenetreenode()
 	b_RUPhas = false;
 	b_LUPhas = false;
 }
+
+cameranode::cameranode()
+{
+	//	视点位置
+	g_eye[0] = 0.0f;	
+	g_eye[1] = 0.0f;	
+	g_eye[2] = 1000.0f;	
+
+	//	视线方向
+	g_dir[0] = 0.0f;	
+	g_dir[1] = 0.0f;	
+	g_dir[2] = -1.0f;	// 默认朝屏幕里面看
+
+	//	头顶法向
+	g_up[0] = 0.0f;		
+	g_up[1] = 1.0f;		// 头顶向上，不歪
+	g_up[2] = 0.0f;		
+}
+
+void cameranode::look()
+{
+	gluLookAt(
+		g_eye[0],	g_eye[1],	g_eye[2],
+		g_eye[0] + g_dir[0],	g_eye[1] + g_dir[1],	g_eye[2] + g_dir[2],
+		g_up[0],	g_up[1],	g_up[2]);
+
+}

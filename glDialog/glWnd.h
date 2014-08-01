@@ -36,9 +36,7 @@ public:
 	GLfloat step,s;
 
 
-	float	g_eye[3];		//	视点位置
-	float	g_dir[3];		//	视线方向
-	float	g_up[3];		//	头顶法向
+	cameranode		m_camera;
 
 	TextureManager	*m_pTextureManager;
 	ArchiveManager *m_pArchiveManger;
