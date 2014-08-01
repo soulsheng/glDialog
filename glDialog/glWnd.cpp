@@ -271,7 +271,7 @@ void glWnd::initialize()
 		assert( 0 && "ArchiveManager已被创建! " );
 	}
 
-	m_scene.initialize();
+	m_scene.initialize( &m_camera );
 }
 
 

@@ -62,7 +62,7 @@ public:
 	void AddObject( vgObject* pObject );
 	void renderObject( );
 	void cleanup();
-	void initialize();
+	void initialize(cameranode *pCamera);
 	void render();
 
 protected:
@@ -79,6 +79,7 @@ protected:
 	scenetreenode rootnode;
 
 	long ReadFilePos;
+	cameranode		*m_pCamera;
 
 };
 

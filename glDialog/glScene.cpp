@@ -140,13 +140,12 @@ void glScene::cleanup()
 	}
 	m_objects.clear();
 
-	FreeNode( &rootnode );
 }
 
-void glScene::initialize()
+void glScene::initialize(cameranode *pCamera)
 {
 	ReadFilePos =0;
-
+	m_pCamera = pCamera;
 }
 
 void glScene::skipByte( CFile &fp, int nByteCount )
@@ -216,7 +215,15 @@ void glScene::OpenIOI( std::string filename )
 #if 0	// skip camera read, 133 bytes
 	vgCurrentCamera.ReadCameraFromFile(pfile);
 #else
-	skipByte( pfile, 133 );
+	skipByte( pfile, 61 );
+	
+	// read 24 bytes
+	pfile.Read( m_pCamera->g_eye , sizeof(float)*3 );
+	pfile.Read( m_pCamera->g_dir , sizeof(float)*3 );
+	for ( int i = 0; i<3; i++ )
+		m_pCamera->g_dir[i] -= m_pCamera->g_eye[i];
+
+	skipByte( pfile, 48 );
 #endif
 
 #if 0	// skip light read, 12 bytes
