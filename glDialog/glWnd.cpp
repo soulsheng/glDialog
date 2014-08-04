@@ -2,7 +2,6 @@
 //
 
 #include "stdafx.h"
-#include "glDialog.h"
 #include "glWnd.h"
 
 #define CLIP_FAR_DISTANCE	100000	// 10000
