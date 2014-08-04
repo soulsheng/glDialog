@@ -87,7 +87,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>cximage.lib;cudart.lib;cufft.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../Dependence/lib/cximage;../Dependence/lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(CudaToolkitLibDir);../Dependence/lib/cximage;../Dependence/lib</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
