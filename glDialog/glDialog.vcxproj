@@ -119,8 +119,8 @@
   <ItemGroup>
     <ClInclude Include="glDialog.h" />
     <ClInclude Include="glDialogDlg.h" />
-    <ClInclude Include="glScene.h" />
     <ClInclude Include="glWnd.h" />
+    <ClInclude Include="model\glScene.h" />
     <ClInclude Include="model\ModleStruct.h" />
     <ClInclude Include="model\vgBoundryBox.h" />
     <ClInclude Include="model\vgNode.h" />
@@ -164,8 +164,8 @@
   <ItemGroup>
     <ClCompile Include="glDialog.cpp" />
     <ClCompile Include="glDialogDlg.cpp" />
-    <ClCompile Include="glScene.cpp" />
     <ClCompile Include="glWnd.cpp" />
+    <ClCompile Include="model\glScene.cpp" />
     <ClCompile Include="model\vgBoundryBox.cpp" />
     <ClCompile Include="model\vgNode.cpp" />
     <ClCompile Include="model\vgObjNode.cpp" />
