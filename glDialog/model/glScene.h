@@ -46,6 +46,9 @@ struct cameranode
 	float	g_up[3];		//	头顶法向
 	cameranode();
 	void	look();
+
+	float		g_Angle;		//左右转
+	float		g_speed;		//速度
 };
 
 class glScene
