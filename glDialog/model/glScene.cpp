@@ -5,6 +5,7 @@
 #include "glScene.h"
 
 #define KEY_DOWN(vk_code)((GetAsyncKeyState(vk_code) & 0x8000) ? 1 : 0)
+#define CAMERA_CONFIG_ONCE	1
 
 glScene::glScene()
 {
@@ -147,6 +148,19 @@ void glScene::initialize(cameranode *pCamera)
 {
 	ReadFilePos =0;
 	m_pCamera = pCamera;
+
+#if CAMERA_CONFIG_ONCE
+	// set camera property by configuration file
+	std::ifstream file;
+	file.open("camera.txt");
+	file >> m_pCamera->g_eye[0]
+		 >> m_pCamera->g_eye[1]
+		 >> m_pCamera->g_eye[2]
+		 >> m_pCamera->g_Angle
+		 >> m_pCamera->g_dir[1] ;
+		 file.close();
+#endif
+
 }
 
 void glScene::skipByte( CFile &fp, int nByteCount )
@@ -218,11 +232,15 @@ void glScene::OpenIOI( std::string filename )
 #else
 	skipByte( pfile, 61 );
 	
+#if CAMERA_CONFIG_ONCE
+	skipByte( pfile, 24 );
+#else
 	// read 24 bytes
 	pfile.Read( m_pCamera->g_eye , sizeof(float)*3 );
 	pfile.Read( m_pCamera->g_dir , sizeof(float)*3 );
 	for ( int i = 0; i<3; i++ )
 		m_pCamera->g_dir[i] -= m_pCamera->g_eye[i];
+#endif
 
 	skipByte( pfile, 48 );
 #endif
