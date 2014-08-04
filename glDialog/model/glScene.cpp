@@ -582,6 +582,10 @@ void cameranode::look()
 	if (KEY_DOWN(VK_HOME))	g_eye[1] +=	g_speed/2;//上升
 	if (KEY_DOWN(VK_END))	g_eye[1] -= g_speed/2;//下降
 
+	if (KEY_DOWN(VK_PRIOR) && (g_dir[1] <= 100))	g_dir[1] += 0.02f;//抬头
+	if (KEY_DOWN(VK_NEXT) && (g_dir[1] >= -100))	g_dir[1] -= 0.02f;//低头
+
+
 	g_dir[0] = cos(PI*g_Angle/180.0f);
 	g_dir[2] = sin(PI*g_Angle/180.0f);
 
