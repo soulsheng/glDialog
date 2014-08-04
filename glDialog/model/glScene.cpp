@@ -579,6 +579,9 @@ void cameranode::look()
 		g_eye[2]-=g_dir[2]*g_speed; 
 	}
 
+	if (KEY_DOWN(VK_HOME))	g_eye[1] +=	g_speed/2;//иоиЩ
+	if (KEY_DOWN(VK_END))	g_eye[1] -= g_speed/2;//об╫╣
+
 	g_dir[0] = cos(PI*g_Angle/180.0f);
 	g_dir[2] = sin(PI*g_Angle/180.0f);
 
