@@ -1,6 +1,7 @@
 #pragma once
 
 #include <gl/GL.h>
+#include "CameraNode.h"
 
 // glWnd
 
@@ -21,9 +22,7 @@ public:
 	HGLRC hglrc;
 	GLfloat step,s;
 
-	float	g_eye[3];		//	视点位置
-	float	g_dir[3];		//	视线方向
-	float	g_up[3];		//	头顶法向
+	cameranode		m_camera;
 
 protected:
 	DECLARE_MESSAGE_MAP()

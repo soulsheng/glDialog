@@ -15,21 +15,6 @@ glWnd::glWnd()
 	step = 0.0;
 	s = 0.1;
 
-	//	视点位置
-	g_eye[0] = 0.0f;	
-	g_eye[1] = 0.0f;	
-	g_eye[2] = 10.0f;	
-
-	//	视线方向
-	g_dir[0] = 0.0f;	
-	g_dir[1] = 0.0f;	
-	g_dir[2] = -1.0f;	// 默认朝屏幕里面看
-
-	//	头顶法向
-	g_up[0] = 0.0f;		
-	g_up[1] = 1.0f;		// 头顶向上，不歪
-	g_up[2] = 0.0f;		
-
 }
 
 glWnd::~glWnd()
@@ -72,10 +57,7 @@ void glWnd::OnPaint()
 	
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	gluLookAt(
-		g_eye[0],	g_eye[1],	g_eye[2],
-		g_eye[0] + g_dir[0],	g_eye[1] + g_dir[1],	g_eye[2] + g_dir[2],
-		g_up[0],	g_up[1],	g_up[2]);
+	m_camera.look();
 
 	s+=0.005;
 	if(s>1.0)
@@ -249,6 +231,9 @@ void glWnd::initialize()
 	}
 
 	glClearColor(0.5f,0.6f,0.8f,1.0f);
+	glEnable( GL_DEPTH_TEST );// 开启遮挡
+
+
 }
 
 void glWnd::OnSize(UINT nType, int cx, int cy)

@@ -107,6 +107,7 @@
     <None Include="res\glDialog.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CameraNode.h" />
     <ClInclude Include="glDialog.h" />
     <ClInclude Include="glDialogDlg.h" />
     <ClInclude Include="glWnd.h" />
@@ -115,6 +116,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CameraNode.cpp" />
     <ClCompile Include="glDialog.cpp" />
     <ClCompile Include="glDialogDlg.cpp" />
     <ClCompile Include="glWnd.cpp" />
