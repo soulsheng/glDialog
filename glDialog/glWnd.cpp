@@ -251,6 +251,7 @@ void glWnd::initialize()
 	}
 
 	glClearColor(0.5f,0.6f,0.8f,1.0f);
+	glEnable( GL_DEPTH_TEST );// ¿ªÆôÕÚµ²
 
 	// Create Texture manager if there is no Texture manager yet
 	if( vgFoundationSystem::TextureManager::getSingletonPtr() == 0 )
