@@ -186,6 +186,12 @@
     <ClInclude Include="utility\vgWarning.h">
       <Filter>utility</Filter>
     </ClInclude>
+    <ClInclude Include="glWndBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\glCameraNode.h">
+      <Filter>model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glDialog.cpp">
@@ -295,6 +301,12 @@
     </ClCompile>
     <ClCompile Include="utility\vgSingleton.cpp">
       <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="glWndBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="model\glCameraNode.cpp">
+      <Filter>model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

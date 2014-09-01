@@ -120,6 +120,8 @@
     <ClInclude Include="glDialog.h" />
     <ClInclude Include="glDialogDlg.h" />
     <ClInclude Include="glWnd.h" />
+    <ClInclude Include="glWndBase.h" />
+    <ClInclude Include="model\glCameraNode.h" />
     <ClInclude Include="model\glScene.h" />
     <ClInclude Include="model\ModleStruct.h" />
     <ClInclude Include="model\vgBoundryBox.h" />
@@ -165,6 +167,8 @@
     <ClCompile Include="glDialog.cpp" />
     <ClCompile Include="glDialogDlg.cpp" />
     <ClCompile Include="glWnd.cpp" />
+    <ClCompile Include="glWndBase.cpp" />
+    <ClCompile Include="model\glCameraNode.cpp" />
     <ClCompile Include="model\glScene.cpp" />
     <ClCompile Include="model\vgBoundryBox.cpp" />
     <ClCompile Include="model\vgNode.cpp" />
