@@ -16,7 +16,6 @@
 
 class glWnd : public glWndBase
 {
-	DECLARE_DYNAMIC(glWnd)
 
 public:
 	glWnd();
@@ -37,13 +36,6 @@ public:
 	glScene	m_scene;
 	COceanSim	m_ocean;
 
-protected:
-	DECLARE_MESSAGE_MAP()
-public:
-	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
-	afx_msg void OnPaint();
-
-	afx_msg void OnSize(UINT nType, int cx, int cy);
 };
 
 

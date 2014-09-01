@@ -6,8 +6,6 @@
 
 // glWnd
 
-IMPLEMENT_DYNAMIC(glWnd, CWnd)
-
 glWnd::glWnd()
 {
 	step = 0.0;
@@ -22,30 +20,6 @@ glWnd::~glWnd()
 	cleanup();
 }
 
-
-BEGIN_MESSAGE_MAP(glWnd, CWnd)
-	ON_WM_CREATE()
-	ON_WM_PAINT()
-	ON_WM_SIZE()
-END_MESSAGE_MAP()
-
-
-
-// glWnd 消息处理程序
-
-
-
-
-int glWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
-{
-	return glWndBase::OnCreate( lpCreateStruct );
-}
-
-
-void glWnd::OnPaint()
-{
-	glWndBase::OnPaint();
-}
 
 void glWnd::cleanup()
 {
@@ -91,12 +65,6 @@ void glWnd::initialize()
 	m_ocean.setVisible( true );
 }
 
-
-
-void glWnd::OnSize(UINT nType, int cx, int cy)
-{
-	glWndBase::OnSize( nType, cx, cy );	
-}
 
 void glWnd::cachePath( std::string filename )
 {
