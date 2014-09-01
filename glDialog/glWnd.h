@@ -1,7 +1,6 @@
 #pragma once
 
-#include <gl/GL.h>
-#include "vgPrerequisites.h"
+#include "glWndBase.h"
 
 #include "vgObjNode.h"
 
@@ -15,7 +14,7 @@
 
 // glWnd
 
-class glWnd : public CWnd
+class glWnd : public glWndBase
 {
 	DECLARE_DYNAMIC(glWnd)
 
@@ -23,21 +22,14 @@ public:
 	glWnd();
 	virtual ~glWnd();
 
+	virtual	void initialize();
+	virtual	void render();
+
 	// add member function and variable
 	void cachePath( std::string filename );
 	void OpenIOI( std::string filename );
 	void LoadModel( std::string filename );
 	void cleanup();
-	void initialize();
-
-	int MySetPixelFormat(HDC hdc);
-	void DrawColorBox(void);
-	HDC hdc;
-	HGLRC hglrc;
-	GLfloat step,s;
-
-
-	cameranode		m_camera;
 
 	vgFoundationSystem::TextureManager	*m_pTextureManager;
 	vgFoundationSystem::ArchiveManager *m_pArchiveManger;
