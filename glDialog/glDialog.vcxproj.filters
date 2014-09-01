@@ -9,9 +9,18 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="model">
+      <UniqueIdentifier>{e906c31a-ede8-4b1e-a1ea-6820f04bb1de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="oceanFFT">
+      <UniqueIdentifier>{06ebe24d-730d-47e2-a8e2-80085741a9d0}</UniqueIdentifier>
+    </Filter>
     <Filter Include="资源文件">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="utility">
+      <UniqueIdentifier>{7af34992-f714-455c-902d-c820795d493c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -21,6 +30,30 @@
     </None>
     <None Include="res\glDialog.ico">
       <Filter>资源文件</Filter>
+    </None>
+    <None Include="oceanFFT\ocean.frag">
+      <Filter>oceanFFT</Filter>
+    </None>
+    <None Include="oceanFFT\ocean.vert">
+      <Filter>oceanFFT</Filter>
+    </None>
+    <None Include="utility\tvgImagePos.inl">
+      <Filter>utility</Filter>
+    </None>
+    <None Include="utility\tvgImageRect.inl">
+      <Filter>utility</Filter>
+    </None>
+    <None Include="utility\tvgTexture.inl">
+      <Filter>utility</Filter>
+    </None>
+    <None Include="utility\tvgTextureManager.inl">
+      <Filter>utility</Filter>
+    </None>
+    <None Include="utility\vgfVector3Impl.inl">
+      <Filter>utility</Filter>
+    </None>
+    <None Include="utility\vgfVector2Impl.inl">
+      <Filter>utility</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -42,8 +75,116 @@
     <ClInclude Include="glWnd.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="CameraNode.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="model\glScene.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="model\ModleStruct.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="model\vgObjNode.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="model\vgNode.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="model\vgBoundryBox.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="oceanFFT\COceanSim.h">
+      <Filter>oceanFFT</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgArchive.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgImageUtil.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgArchiveDeclaration.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgArchiveFactory.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgArchiveManager.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgArchiveSaver.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgDdsImage.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgFileStreamReader.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgImage.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgImageFactory.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgImagePos.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgImageRect.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgNormalImage.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgZipArchive.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgOpenGLSupport.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgStreamFactory.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgStreamReader.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgStreamWriter.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgString.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgStringUtil.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgTexture.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgTextureBuilder.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\tvgTextureManager.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\vgDdsDeclaration.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\vgException.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\vgfColorValue.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\vgfVector2.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\vgfVector3.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\vgPrerequisites.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\vgSingleton.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\vgWarning.h">
+      <Filter>utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -56,16 +197,114 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="model\glScene.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="model\vgNode.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="model\vgObjNode.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="model\vgBoundryBox.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="oceanFFT\COceanSim.cpp">
+      <Filter>oceanFFT</Filter>
+    </ClCompile>
+    <ClCompile Include="oceanFFT\oceanFFT.cpp">
+      <Filter>oceanFFT</Filter>
+    </ClCompile>
     <ClCompile Include="glWnd.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="CameraNode.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="utility\tvgArchive.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\vgException.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgArchiveFactory.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgArchiveManager.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgArchiveSaver.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgDdsImage.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgFileStreamReader.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgImage.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgImageFactory.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgImagePos.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgImageRect.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgImageUtil.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgNormalImage.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgOpenGLSupport.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgStreamReader.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgString.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgStringUtil.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgTexture.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgTextureBuilder.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgTextureManager.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\tvgZipArchive.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\vgfColorValue.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\vgWarning.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\vgfVector2.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\vgfVector3.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utility\vgSingleton.cpp">
+      <Filter>utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="glDialog.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="oceanFFT\oceanFFT_kernel.cu">
+      <Filter>oceanFFT</Filter>
+    </CudaCompile>
   </ItemGroup>
 </Project>
