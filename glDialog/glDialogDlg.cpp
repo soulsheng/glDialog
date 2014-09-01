@@ -106,6 +106,8 @@ BOOL CglDialogDlg::OnInitDialog()
 		this,   // 指定当前对话框为其父窗口指针
 		0); 
 
+	m_Display.initialize();
+
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
