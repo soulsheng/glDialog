@@ -9,6 +9,7 @@
 using namespace std;
 
 static const int    N                   = 64;
+#define CAMERA_CONFIG_ONCE	1
 
 // glWnd
 
@@ -49,6 +50,21 @@ void glWndPointCloud::initialize()
 {
 	openTxt("../Data/Ex.txt", Ex, N, N, 0, 50000.0f );
 
+#if CAMERA_CONFIG_ONCE
+	// set camera property by configuration file
+	std::ifstream file;
+	file.open("cameraPointCloud.txt");
+	if (!file)
+	{
+		MessageBox("can not open file: ", "cameraPointCloud.txt", MB_OK );
+	}
+	file >> m_camera.g_eye[0]
+	>> m_camera.g_eye[1]
+	>> m_camera.g_eye[2]
+	>> m_camera.g_Angle
+		>> m_camera.g_dir[1] ;
+	file.close();
+#endif
 }
 
 void glWndPointCloud::render()
