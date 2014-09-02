@@ -2,7 +2,6 @@
 //
 
 #include "stdafx.h"
-#include "glDialog.h"
 #include "glWnd.h"
 
 
