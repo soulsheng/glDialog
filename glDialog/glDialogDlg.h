@@ -13,7 +13,7 @@ class CglDialogDlg : public CDialogEx
 public:
 	CglDialogDlg(CWnd* pParent = NULL);	// 标准构造函数
 
-	glWndPointCloud	m_Display;
+	glWndPointCloud	m_Display[2];
 
 // 对话框数据
 	enum { IDD = IDD_GLDIALOG_DIALOG };
