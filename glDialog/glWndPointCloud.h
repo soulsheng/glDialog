@@ -21,6 +21,8 @@ private:
 
 private:
 	float *Ex;
+
+	float	m_widthScene;
 };
 
 

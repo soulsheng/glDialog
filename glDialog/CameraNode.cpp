@@ -36,8 +36,8 @@ void cameranode::look()
 	if (KEY_DOWN(VK_HOME))	g_eye[1] +=	g_speed/2;//上升
 	if (KEY_DOWN(VK_END))	g_eye[1] -= g_speed/2;//下降
 	
-	if (KEY_DOWN(VK_PRIOR) && (g_dir[1] <= 100))	g_dir[1] += g_speed*0.05f;//抬头
-	if (KEY_DOWN(VK_NEXT) && (g_dir[1] >= -100))	g_dir[1] -= g_speed*0.05f;//低头
+	if (KEY_DOWN(VK_PRIOR) && (g_dir[1] <= 100))	g_dir[1] += g_speed*0.005f;//抬头
+	if (KEY_DOWN(VK_NEXT) && (g_dir[1] >= -100))	g_dir[1] -= g_speed*0.005f;//低头
 
 	g_dir[0] = cos(PI*g_Angle/180.0f);
 	g_dir[2] = sin(PI*g_Angle/180.0f);
@@ -78,4 +78,9 @@ void cameranode::reset()
 	>> g_Angle >> g_dir[1] ;
 	file.close();
 #endif
+}
+
+void cameranode::setSpeed( float speed )
+{
+	g_speed = speed;
 }

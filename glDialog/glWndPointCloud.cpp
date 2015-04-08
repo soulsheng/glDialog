@@ -44,6 +44,8 @@ void glWndPointCloud::openTxt( char* filename, float* pBuffer, int width, int he
 		}
 
 	inputFile.close();
+
+	m_widthScene = N;
 }
 
 void glWndPointCloud::initialize()
@@ -65,6 +67,7 @@ void glWndPointCloud::initialize()
 		>> m_camera.g_dir[1] ;
 	file.close();
 #endif
+	m_camera.setSpeed( m_widthScene * 0.0001f );
 }
 
 void glWndPointCloud::render()
