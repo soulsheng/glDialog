@@ -7,6 +7,7 @@
 #define PI	3.1415927
 
 cameranode::cameranode()
+	:g_acc(1.01f)
 {
 	// 初始位置和视线
 	reset();
@@ -14,8 +15,8 @@ cameranode::cameranode()
 
 void cameranode::look()
 {
-	if (KEY_DOWN(VK_SHIFT) && (g_speed <= 10000))    g_speed   =g_speed*1.05;//按SHIFT时的加速
-	if (KEY_DOWN(VK_CONTROL))  g_speed   =g_speed/1.05;//按CONTROL时的减速
+	if (KEY_DOWN(VK_SHIFT) && (g_speed <= 10000))    g_speed   =g_speed*g_acc;//按SHIFT时的加速
+	if (KEY_DOWN(VK_CONTROL))  g_speed   =g_speed/g_acc;//按CONTROL时的减速
 	if (KEY_DOWN(VK_LEFT))     g_Angle-=g_speed;//左转
 	if (KEY_DOWN(VK_RIGHT))    g_Angle+=g_speed;//右转
 
@@ -35,8 +36,8 @@ void cameranode::look()
 	if (KEY_DOWN(VK_HOME))	g_eye[1] +=	g_speed/2;//上升
 	if (KEY_DOWN(VK_END))	g_eye[1] -= g_speed/2;//下降
 	
-	if (KEY_DOWN(VK_PRIOR) && (g_dir[1] <= 100))	g_dir[1] += 0.02f;//抬头
-	if (KEY_DOWN(VK_NEXT) && (g_dir[1] >= -100))	g_dir[1] -= 0.02f;//低头
+	if (KEY_DOWN(VK_PRIOR) && (g_dir[1] <= 100))	g_dir[1] += g_speed*0.05f;//抬头
+	if (KEY_DOWN(VK_NEXT) && (g_dir[1] >= -100))	g_dir[1] -= g_speed*0.05f;//低头
 
 	g_dir[0] = cos(PI*g_Angle/180.0f);
 	g_dir[2] = sin(PI*g_Angle/180.0f);
