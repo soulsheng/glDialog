@@ -64,7 +64,7 @@ void glWndBase::OnPaint()
 
 	render();
 
-#if 1
+#if 0
 	s+=0.005;
 	if(s>1.0)
 		s=0.1;
