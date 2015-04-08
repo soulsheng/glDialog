@@ -97,14 +97,14 @@ void glWndPointCloud::render()
 
 	glBegin( GL_POINTS );
 
-#if 1
+#if 0
 	for ( int i=0;i<N;i++ )
 		for ( int j=0;j<N;j++ )
 		{
 			glColor3fv( color3d[i%4] );
 			glVertex3f( i, Ex[i*N+j], j );
 		}
-//#else
+#else
 	for ( int i=0;i<L;i++ )
 	{
 		glColor3dv( m_pColor+3*i );
