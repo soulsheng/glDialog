@@ -21,6 +21,8 @@ private:
 
 private:
 	float *Ex;
+	double *m_pVertex;
+	double *m_pColor;
 
 	float	m_widthScene;
 };

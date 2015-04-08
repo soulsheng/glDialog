@@ -3,12 +3,14 @@
 
 #include "stdafx.h"
 #include "glWndPointCloud.h"
+#include "read_xyzrgb.h"
 
 #include <iostream>
 #include <fstream>
 using namespace std;
 
 static const int    N                   = 64;
+static const int	L					= 91345;
 #define CAMERA_CONFIG_ONCE	1
 
 // glWnd
@@ -16,6 +18,9 @@ static const int    N                   = 64;
 glWndPointCloud::glWndPointCloud()
 {
 	Ex=(float*)calloc(N*N,sizeof(float));
+
+	m_pVertex = new double[ L*3 ];
+	m_pColor = new double[ L*3 ];
 }
 
 glWndPointCloud::~glWndPointCloud()
@@ -27,6 +32,8 @@ glWndPointCloud::~glWndPointCloud()
 void glWndPointCloud::cleanup()
 {
 	free( Ex );	
+	delete[] m_pVertex;
+	delete[] m_pColor;
 }
 
 void glWndPointCloud::openTxt( char* filename, float* pBuffer, int width, int height, int depth, float scale )
@@ -51,6 +58,13 @@ void glWndPointCloud::openTxt( char* filename, float* pBuffer, int width, int he
 void glWndPointCloud::initialize()
 {
 	openTxt("../Data/Ex.txt", Ex, N, N, 0, 50000.0f );
+
+	read_xyzrgb( "../Data/w91345_dmax2-15_building_new0407.txt", m_pVertex, L*3, true );
+	read_xyzrgb( "../Data/rgb91345_dmax2-15_building_new0407.txt", m_pColor, L*3, true );
+
+	// upside down 
+	for ( int i=0;i<L;i++ )
+		m_pVertex[3*i+1] *= -1.0f ;
 
 #if CAMERA_CONFIG_ONCE
 	// set camera property by configuration file
@@ -82,12 +96,22 @@ void glWndPointCloud::render()
 	glPushMatrix();
 
 	glBegin( GL_POINTS );
+
+#if 1
 	for ( int i=0;i<N;i++ )
 		for ( int j=0;j<N;j++ )
 		{
 			glColor3fv( color3d[i%4] );
 			glVertex3f( i, Ex[i*N+j], j );
 		}
+//#else
+	for ( int i=0;i<L;i++ )
+	{
+		glColor3dv( m_pColor+3*i );
+		glVertex3dv( m_pVertex+3*i );
+	}
+#endif
+
 	glEnd( );
 
 	glPopMatrix();

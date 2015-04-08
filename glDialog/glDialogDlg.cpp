@@ -54,6 +54,10 @@ CglDialogDlg::CglDialogDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CglDialogDlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+
+	AllocConsole();
+	freopen( "CONOUT$", "w+t", stdout );// ษ๊ว๋ะด
+
 }
 
 void CglDialogDlg::DoDataExchange(CDataExchange* pDX)
