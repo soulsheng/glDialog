@@ -13,6 +13,7 @@
 
 #define		SIZE_X_WIN		800
 #define		SIZE_Y_WIN		600
+#define		ENABLE_CONSOLE	0
 
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
 
@@ -54,10 +55,10 @@ CglDialogDlg::CglDialogDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CglDialogDlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
-
+#if ENABLE_CONSOLE
 	AllocConsole();
 	freopen( "CONOUT$", "w+t", stdout );// 申请写
-
+#endif
 }
 
 void CglDialogDlg::DoDataExchange(CDataExchange* pDX)
