@@ -16,5 +16,6 @@ struct cameranode
 	const float		g_acc;			//º”ÀŸ∂»
 
 	void OnMouseMove(int nFlags, int positionX, int positionY );
+	void OnMouseWheel( short zDelta );
 };
 

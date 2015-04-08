@@ -137,3 +137,9 @@ void cameranode::OnMouseMove( int nFlags, int positionX, int positionY )
 	s_lastPostionX = positionX;
 	s_lastPostionY = positionY;
 }
+
+void cameranode::OnMouseWheel( short zDelta )
+{
+	g_eye[0]+=g_dir[0]*g_speed * zDelta;
+	g_eye[2]+=g_dir[2]*g_speed * zDelta;
+}

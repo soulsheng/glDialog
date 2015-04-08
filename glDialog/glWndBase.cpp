@@ -30,6 +30,7 @@ BEGIN_MESSAGE_MAP(glWndBase, CWnd)
 	ON_WM_PAINT()
 	ON_WM_SIZE()
 	ON_WM_MOUSEMOVE()
+	ON_WM_MOUSEWHEEL()
 END_MESSAGE_MAP()
 
 
@@ -267,4 +268,13 @@ void glWndBase::OnMouseMove(UINT nFlags, CPoint point)
 	m_camera.OnMouseMove( nFlags, point.x, point.y );
 
 	CWnd::OnMouseMove(nFlags, point);
+}
+
+
+BOOL glWndBase::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	m_camera.OnMouseWheel( zDelta );
+
+	return CWnd::OnMouseWheel(nFlags, zDelta, pt);
 }
