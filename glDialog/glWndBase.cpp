@@ -29,6 +29,7 @@ BEGIN_MESSAGE_MAP(glWndBase, CWnd)
 	ON_WM_CREATE()
 	ON_WM_PAINT()
 	ON_WM_SIZE()
+	ON_WM_MOUSEMOVE()
 END_MESSAGE_MAP()
 
 
@@ -257,4 +258,13 @@ void glWndBase::OnSize(UINT nType, int cx, int cy)
 		1.0f, CLIP_FAR_DISTANCE );		
 	glMatrixMode (GL_MODELVIEW);										// Select The Modelview Matrix
 	glLoadIdentity ();			
+}
+
+
+void glWndBase::OnMouseMove(UINT nFlags, CPoint point)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	m_camera.OnMouseMove( nFlags, point.x, point.y );
+
+	CWnd::OnMouseMove(nFlags, point);
 }

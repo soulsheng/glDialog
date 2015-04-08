@@ -86,7 +86,7 @@ void cameranode::reset()
 #if CAMERA_CONFIG_ONCE
 	// set camera property by configuration file
 	std::ifstream file;
-	file.open("camera.txt");
+	file.open("cameraPointCloud.txt");
 	file	>> g_eye[0] >> g_eye[1] >> g_eye[2]
 	>> g_Angle >> g_dir[1] ;
 	file.close();
@@ -96,4 +96,44 @@ void cameranode::reset()
 void cameranode::setSpeed( float speed )
 {
 	g_speed = speed;
+}
+
+void cameranode::OnMouseMove( int nFlags, int positionX, int positionY )
+{
+	static int s_lastPostionX;
+	static int s_lastPostionY;
+	static bool first = true;
+
+	if ( !first && (nFlags & MK_LBUTTON) )
+	{
+		float offsetx = positionX - s_lastPostionX; 
+		float offsety = positionY - s_lastPostionY;
+
+		if ( fabs(offsetx) > fabs(offsety) && fabs(offsetx) != 0 )
+		{
+			//changeHeading(offsetx);
+			g_Angle -= g_speed * offsetx * 5;
+		}
+		else if ( offsety != 0)
+		{
+			//changePitch(offsety);
+			g_dir[1] += g_speed * offsety ;
+		}
+	}
+	else if ( !first && (nFlags & MK_RBUTTON) )
+	{
+		float offsetx = positionX - s_lastPostionX; 
+		float offsety = positionY - s_lastPostionY;
+
+		if ( offsety != 0)
+		{
+			g_eye[0]+=g_dir[0]*g_speed * offsety;
+			g_eye[2]+=g_dir[2]*g_speed * offsety;
+		}
+	}
+
+
+	first = false;
+	s_lastPostionX = positionX;
+	s_lastPostionY = positionY;
 }

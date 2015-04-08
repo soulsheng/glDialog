@@ -14,5 +14,7 @@ struct cameranode
 	float		g_Angle;		//左右转
 	float		g_speed;		//速度
 	const float		g_acc;			//加速度
+
+	void OnMouseMove(int nFlags, int positionX, int positionY );
 };
 
