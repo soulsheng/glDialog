@@ -11,6 +11,8 @@
 #define new DEBUG_NEW
 #endif
 
+#define		SIZE_X_WIN		800
+#define		SIZE_Y_WIN		600
 
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
 
@@ -97,13 +99,13 @@ BOOL CglDialogDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// 设置大图标
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
-	for( int i=0;i<2;i++){
+	for( int i=0;i<1;i++){
 	// TODO: 在此添加额外的初始化代码
 	m_Display[i].Create( NULL,   //缺省的窗口
 		NULL,   //无窗口名称
 		WS_CHILD|WS_CLIPSIBLINGS|WS_CLIPCHILDREN|WS_VISIBLE,
 		// 定义窗口风格
-		CRect(i*256, 0, (i+1)*256, 256),   // 窗口的大小
+		CRect(i*256, 0, (i+1)*SIZE_X_WIN, SIZE_Y_WIN),   // 窗口的大小
 		this,   // 指定当前对话框为其父窗口指针
 		0); 
 
