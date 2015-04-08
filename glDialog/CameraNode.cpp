@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "CameraNode.h"
 #include <fstream>
+#include <iostream>
 
 #define KEY_DOWN(vk_code)((GetAsyncKeyState(vk_code) & 0x8000) ? 1 : 0)
 #define CAMERA_CONFIG_ONCE	1
@@ -47,6 +48,18 @@ void cameranode::look()
 		g_eye[0] + g_dir[0],	g_eye[1] + g_dir[1],	g_eye[2] + g_dir[2],
 		g_up[0],	g_up[1],	g_up[2]);
 
+	if( KEY_DOWN('P') )
+	{
+		std::ofstream file;
+		file.open("cameraPointCloud.txt");
+		if (!file)
+		{
+			std::cout << "can not open file: cameraPointCloud.txt" << std::endl;
+		}
+		file << g_eye[0] << std::endl << g_eye[1]<< std::endl << g_eye[2]<< std::endl
+			 << g_Angle<< std::endl << g_dir[1] ;
+		file.close();
+	}
 }
 
 void cameranode::reset()
