@@ -243,6 +243,20 @@ void glWndBase::initializeGL()
 	glClearColor(0.5f,0.6f,0.8f,1.0f);
 	glEnable( GL_DEPTH_TEST );// ¿ªÆôÕÚµ²
 
+
+#if 1
+	GLfloat LightAmbient[]=		{ 0.5f, 0.5f, 0.5f, 1.0f };
+	GLfloat LightDiffuse[]=		{ 1.0f, 1.0f, 1.0f, 1.0f };
+	GLfloat LightPosition[]=	{ 10.0f, 0.0f, 10.0f, 1.0f };
+
+	glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmbient);		// Setup The Ambient Light
+	glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiffuse);		// Setup The Diffuse Light
+	glLightfv(GL_LIGHT1, GL_POSITION,LightPosition);	// Position The Light
+	glEnable(GL_LIGHT1);								// Enable Light One
+	glEnable(GL_LIGHTING);
+
+	glEnable(GL_COLOR_MATERIAL);
+#endif
 }
 
 

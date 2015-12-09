@@ -10,7 +10,7 @@
 using namespace std;
 
 static const int    N                   = 64;
-static const int	L					= 91345;
+static const int	L					= 129280;
 #define CAMERA_CONFIG_ONCE	1
 
 // glWnd
@@ -107,6 +107,7 @@ void glWndPointCloud::render()
 #else
 	for ( int i=0;i<L;i++ )
 	{
+		glNormal3f( 0.0f, 0.0f, -1.0f );
 		glColor3dv( m_pColor+3*i );
 		glVertex3dv( m_pVertex+3*i );
 	}
