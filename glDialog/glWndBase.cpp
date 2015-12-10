@@ -247,7 +247,7 @@ void glWndBase::initializeGL()
 #if 1
 	GLfloat LightAmbient[]=		{ 0.5f, 0.5f, 0.5f, 1.0f };
 	GLfloat LightDiffuse[]=		{ 1.0f, 1.0f, 1.0f, 1.0f };
-	GLfloat LightPosition[]=	{ 10.0f, 0.0f, 10.0f, 1.0f };
+	GLfloat LightPosition[]=	{ 0.0f, 0.0f, 0.0f, 1.0f };
 
 	glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmbient);		// Setup The Ambient Light
 	glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiffuse);		// Setup The Diffuse Light
@@ -270,7 +270,7 @@ void glWndBase::OnSize(UINT nType, int cx, int cy)
 	glMatrixMode (GL_PROJECTION);										// Select The Projection Matrix
 	glLoadIdentity ();													// Reset The Projection Matrix
 	gluPerspective (45.0f, (GLfloat)(cx)/(GLfloat)(cy),			// Calculate The Aspect Ratio Of The Window
-		1.0f, CLIP_FAR_DISTANCE );		
+		0.01f, CLIP_FAR_DISTANCE );		
 	glMatrixMode (GL_MODELVIEW);										// Select The Modelview Matrix
 	glLoadIdentity ();			
 }
