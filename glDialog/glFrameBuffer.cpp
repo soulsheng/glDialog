@@ -1,11 +1,8 @@
 
-#include <vgStableHeaders.h>
-#include <vgCam/vgcaFrameBuffer.h>
-
-#include <vgKernel/vgkTrace.h>
+#include "stdafx.h"
+#include "glFrameBuffer.h"
 #include <sstream>
 
-namespace vgCam {
 
 	//----------------------------------------------------------------
 	FrameBuffer::FrameBuffer( int width , int height )
@@ -159,10 +156,7 @@ namespace vgCam {
 		{
 			this->destroy();
 		}
-		VGK_TRACE( "FrameBuffer destructed!");
+		//VGK_TRACE( "FrameBuffer destructed!");
 	}
 	//----------------------------------------------------------------
 
-
-
-}// end of namespace vgCore

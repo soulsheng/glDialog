@@ -5,14 +5,11 @@
 #ifndef __VGCAFRAMEBUFFER_H__
 #define __VGCAFRAMEBUFFER_H__
 
-#include <vgCam/vgcaDefinition.h>
+#include <gl/GL.h>
+#include <gl/GLU.h>
 
-// 
-// #include <vgCore/vgPrerequisites.h>
 
-namespace vgCam {
-
-	class VGCA_EXPORT FrameBuffer
+	class FrameBuffer
 	{
 	public:
 		FrameBuffer( int width , int height );
@@ -63,7 +60,5 @@ namespace vgCam {
 
 
 
-
-}// end of namespace vgCam
 
 #endif // end of __VGFRAMEBUFFER_H__
