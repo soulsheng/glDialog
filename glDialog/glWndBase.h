@@ -2,6 +2,7 @@
 
 #include <gl/GL.h>
 #include "CameraNode.h"
+#include "glFrameBuffer.h"
 
 // glWnd
 
@@ -27,6 +28,7 @@ public:
 	GLfloat step,s;
 
 	cameranode	m_camera;
+	FrameBuffer *m_pFrameBuffer;
 
 protected:
 	DECLARE_MESSAGE_MAP()

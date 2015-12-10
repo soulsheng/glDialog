@@ -3,8 +3,11 @@
 
 #include "stdafx.h"
 #include "glWndBase.h"
+#include "bmpHandler.h"
 
 #define CLIP_FAR_DISTANCE	100000	// 10000
+#define FRAME_BUFFER_WIDTH	1024
+#define FRAME_BUFFER_HEIGHT	600
 
 // glWndBase
 
@@ -15,7 +18,7 @@ glWndBase::glWndBase()
 	step = 0.0;
 	s = 0.1;
 
-	
+	m_pFrameBuffer = NULL;
 
 }
 
@@ -84,6 +87,38 @@ void glWndBase::OnPaint()
 #endif
 	SwapBuffers(hdc);
 
+
+#if 1 // frame buffer end
+	glPushAttrib(GL_VIEWPORT_BIT);
+
+	if (m_pFrameBuffer != NULL)
+	{
+		delete m_pFrameBuffer;
+	}
+	m_pFrameBuffer = new FrameBuffer( FRAME_BUFFER_WIDTH, FRAME_BUFFER_HEIGHT );
+	m_pFrameBuffer->create();
+
+	m_pFrameBuffer->bind();
+
+	char* buf = new char[ 3 * FRAME_BUFFER_WIDTH * FRAME_BUFFER_HEIGHT ];
+	glReadBuffer(GL_COLOR_ATTACHMENT0_EXT);
+	glReadPixels(0, 0, FRAME_BUFFER_WIDTH, FRAME_BUFFER_HEIGHT , GL_BGR , GL_UNSIGNED_BYTE , buf);
+
+	//vgImage::CximageWrapper bmpimg;
+
+	//bmpimg.createFromArray(buf, m_bmpWidth, m_bmpHeight);
+
+	//bmpimg.saveToFile(m_bmpFilePath);
+	BMPHandler::saveImage( "1.bmp", buf, FRAME_BUFFER_HEIGHT, FRAME_BUFFER_WIDTH );
+
+	delete[] buf;
+
+	m_pFrameBuffer->unbind();
+
+	m_pFrameBuffer->destroy();
+
+	glPopAttrib();
+#endif
 	// 不为绘图消息调用 CWnd::OnPaint()
 }
 
