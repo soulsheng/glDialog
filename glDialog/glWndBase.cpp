@@ -34,6 +34,7 @@ BEGIN_MESSAGE_MAP(glWndBase, CWnd)
 	ON_WM_SIZE()
 	ON_WM_MOUSEMOVE()
 	ON_WM_MOUSEWHEEL()
+	ON_WM_KEYUP()
 END_MESSAGE_MAP()
 
 
@@ -61,13 +62,9 @@ void glWndBase::OnPaint()
 	//CPaintDC dc(this); // device context for painting
 	// TODO: 在此处添加消息处理程序代码
 	wglMakeCurrent(hdc, hglrc); 
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //清除颜色缓存和深度缓存
 
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	m_camera.look();
+	renderAll();
 
-	render();
 
 #if 0
 	s+=0.005;
@@ -87,38 +84,6 @@ void glWndBase::OnPaint()
 #endif
 	SwapBuffers(hdc);
 
-
-#if 1 // frame buffer end
-	glPushAttrib(GL_VIEWPORT_BIT);
-
-	if (m_pFrameBuffer != NULL)
-	{
-		delete m_pFrameBuffer;
-	}
-	m_pFrameBuffer = new FrameBuffer( FRAME_BUFFER_WIDTH, FRAME_BUFFER_HEIGHT );
-	m_pFrameBuffer->create();
-
-	m_pFrameBuffer->bind();
-
-	char* buf = new char[ 3 * FRAME_BUFFER_WIDTH * FRAME_BUFFER_HEIGHT ];
-	glReadBuffer(GL_COLOR_ATTACHMENT0_EXT);
-	glReadPixels(0, 0, FRAME_BUFFER_WIDTH, FRAME_BUFFER_HEIGHT , GL_BGR , GL_UNSIGNED_BYTE , buf);
-
-	//vgImage::CximageWrapper bmpimg;
-
-	//bmpimg.createFromArray(buf, m_bmpWidth, m_bmpHeight);
-
-	//bmpimg.saveToFile(m_bmpFilePath);
-	BMPHandler::saveImage( "1.bmp", buf, FRAME_BUFFER_HEIGHT, FRAME_BUFFER_WIDTH );
-
-	delete[] buf;
-
-	m_pFrameBuffer->unbind();
-
-	m_pFrameBuffer->destroy();
-
-	glPopAttrib();
-#endif
 	// 不为绘图消息调用 CWnd::OnPaint()
 }
 
@@ -326,4 +291,77 @@ BOOL glWndBase::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 	m_camera.OnMouseWheel( zDelta );
 
 	return CWnd::OnMouseWheel(nFlags, zDelta, pt);
+}
+
+void glWndBase::renderAll()
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //清除颜色缓存和深度缓存
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	m_camera.look();
+
+	render();
+}
+
+void glWndBase::screenShot()
+{
+#if 1 // frame buffer
+	glPushAttrib(GL_VIEWPORT_BIT);
+
+	if (m_pFrameBuffer != NULL)
+	{
+		delete m_pFrameBuffer;
+	}
+
+	int width, height;
+	int x, y;
+	int viewport[4]; /* x, y, width, height */
+	glGetIntegerv(GL_VIEWPORT, viewport);
+	x = viewport[0];
+	y = viewport[1];
+	width = viewport[2];
+	height = viewport[3];
+
+	m_pFrameBuffer = new FrameBuffer( width, height );
+	m_pFrameBuffer->create();
+
+	m_pFrameBuffer->bind();
+#endif
+
+	renderAll();
+
+
+#if 1 // frame buffer
+	char* buf = new char[ 3 * width * height ];
+	glReadBuffer(GL_COLOR_ATTACHMENT0_EXT);
+	glReadPixels(x, y, width, height , GL_BGR , GL_UNSIGNED_BYTE , buf);
+
+	//vgImage::CximageWrapper bmpimg;
+
+	//bmpimg.createFromArray(buf, m_bmpWidth, m_bmpHeight);
+
+	//bmpimg.saveToFile(m_bmpFilePath);
+	BMPHandler::saveImage( "1.bmp", buf, height, width );
+
+	delete[] buf;
+
+	m_pFrameBuffer->unbind();
+
+	m_pFrameBuffer->destroy();
+
+	glPopAttrib();
+#endif
+}
+
+
+void glWndBase::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	if( nChar == 'O' || nChar == 'o')
+	{
+		screenShot();
+	}
+	CWnd::OnKeyUp(nChar, nRepCnt, nFlags);
 }
