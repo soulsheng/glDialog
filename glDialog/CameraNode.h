@@ -1,6 +1,7 @@
 
 #pragma once
 
+#include "BoundingBox.h"
 
 struct cameranode
 {
@@ -17,5 +18,11 @@ struct cameranode
 
 	void OnMouseMove(int nFlags, int positionX, int positionY );
 	void OnMouseWheel( short zDelta );
+
+	BoundingBox*	m_pBox;
+	void	setBox( BoundingBox* pBox )
+	{
+		m_pBox = pBox;
+	}
 };
 

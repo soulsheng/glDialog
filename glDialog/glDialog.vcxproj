@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bmpHandler.h" />
+    <ClInclude Include="BoundingBox.h" />
     <ClInclude Include="CameraNode.h" />
     <ClInclude Include="glDialog.h" />
     <ClInclude Include="glDialogDlg.h" />
@@ -122,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bmpHandler.cpp" />
+    <ClCompile Include="BoundingBox.cpp" />
     <ClCompile Include="CameraNode.cpp" />
     <ClCompile Include="glDialog.cpp" />
     <ClCompile Include="glDialogDlg.cpp" />

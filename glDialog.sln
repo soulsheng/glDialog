@@ -3,16 +3,30 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glDialog", "glDialog\glDialog.vcxproj", "{12C81256-F97C-450C-8849-CE98BF6C3F23}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BoundingBox", "BoundingBox\BoundingBox.vcxproj", "{F7C21E96-DAA3-42B0-A3C3-A60B75C92FD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
 		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{12C81256-F97C-450C-8849-CE98BF6C3F23}.Debug|Win32.ActiveCfg = Debug|Win32
 		{12C81256-F97C-450C-8849-CE98BF6C3F23}.Debug|Win32.Build.0 = Debug|Win32
+		{12C81256-F97C-450C-8849-CE98BF6C3F23}.Debug|x64.ActiveCfg = Debug|Win32
 		{12C81256-F97C-450C-8849-CE98BF6C3F23}.Release|Win32.ActiveCfg = Release|Win32
 		{12C81256-F97C-450C-8849-CE98BF6C3F23}.Release|Win32.Build.0 = Release|Win32
+		{12C81256-F97C-450C-8849-CE98BF6C3F23}.Release|x64.ActiveCfg = Release|Win32
+		{F7C21E96-DAA3-42B0-A3C3-A60B75C92FD0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F7C21E96-DAA3-42B0-A3C3-A60B75C92FD0}.Debug|Win32.Build.0 = Debug|Win32
+		{F7C21E96-DAA3-42B0-A3C3-A60B75C92FD0}.Debug|x64.ActiveCfg = Debug|x64
+		{F7C21E96-DAA3-42B0-A3C3-A60B75C92FD0}.Debug|x64.Build.0 = Debug|x64
+		{F7C21E96-DAA3-42B0-A3C3-A60B75C92FD0}.Release|Win32.ActiveCfg = Release|Win32
+		{F7C21E96-DAA3-42B0-A3C3-A60B75C92FD0}.Release|Win32.Build.0 = Release|Win32
+		{F7C21E96-DAA3-42B0-A3C3-A60B75C92FD0}.Release|x64.ActiveCfg = Release|x64
+		{F7C21E96-DAA3-42B0-A3C3-A60B75C92FD0}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

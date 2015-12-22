@@ -10,12 +10,13 @@
 using namespace std;
 
 static const int    N                   = 64;
-static const int	L					= 1241442;
+static const int	L					= 136710;//102824;
 #define CAMERA_CONFIG_ONCE	1
 
 
-#define FILE_NAME_POSITION	"../Data/w1241442_dmax30_building1-15.txt"
-#define FILE_NAME_COLOR		"../Data/rgb1241442_dmax30_building1-15.txt"
+#define FILE_NAME_POSITION	"../Data/10_w.txt"
+#define FILE_NAME_COLOR		"../Data/10_rgb.txt"
+#define FILE_NAME_BOX		"../Data/BoundingBox.txt"
 
 // glWnd
 
@@ -85,6 +86,9 @@ void glWndPointCloud::initialize()
 		>> m_camera.g_dir[1] ;
 	file.close();
 #endif
+	m_box.reductionBoundingBox( (Point3*)m_pVertex, L );
+	//m_box.read_box(FILE_NAME_BOX);
+	m_camera.setBox( &m_box );
 	m_camera.setSpeed( m_widthScene * 0.0001f );
 }
 

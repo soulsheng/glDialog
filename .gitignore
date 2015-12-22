@@ -13,3 +13,7 @@
 /ipch
 /Release/*.pdb
 /Release/*.exe
+/BoundingBox/Release
+/BoundingBox/Debug
+/BoundingBox/*.pdb
+/Data/*.txt

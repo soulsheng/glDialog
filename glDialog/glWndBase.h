@@ -3,6 +3,7 @@
 #include <gl/GL.h>
 #include "CameraNode.h"
 #include "glFrameBuffer.h"
+#include "BoundingBox.h"
 
 // glWnd
 
@@ -27,6 +28,7 @@ public:
 	HGLRC hglrc;
 	GLfloat step,s;
 
+	BoundingBox	m_box;
 	cameranode	m_camera;
 	FrameBuffer *m_pFrameBuffer;
 
