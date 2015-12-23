@@ -12,7 +12,7 @@ public:
 
 	virtual	void initialize();
 	virtual	void render();
-
+	void renderBox();
 	// add member function and variable
 private:
 	void cleanup();

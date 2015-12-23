@@ -22,7 +22,7 @@ public:
 	void print( );
 
 	BoundingBox();
-
+	Point3*	getPoints()	{ return m_MinMax; }
 protected:
 private:
 	Point3	m_MinMax[2];

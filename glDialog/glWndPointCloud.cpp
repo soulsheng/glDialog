@@ -10,12 +10,12 @@
 using namespace std;
 
 static const int    N                   = 64;
-static const int	L					= 136710;//102824;
+static const int	L					= 275311;//136710;//102824;
 #define CAMERA_CONFIG_ONCE	1
 
 
-#define FILE_NAME_POSITION	"../Data/10_w.txt"
-#define FILE_NAME_COLOR		"../Data/10_rgb.txt"
+#define FILE_NAME_POSITION	"../Data/0_w.txt"
+#define FILE_NAME_COLOR		"../Data/0_rgb.txt"
 #define FILE_NAME_BOX		"../Data/BoundingBox.txt"
 
 // glWnd
@@ -123,5 +123,39 @@ void glWndPointCloud::render()
 
 	glEnd( );
 
+	renderBox();
+
 	glPopMatrix();
+}
+
+void glWndPointCloud::renderBox()
+{
+
+	Point3* pPoints = m_box.getPoints() ;
+
+	Point3& pMin = pPoints[0];
+	Point3& pMax = pPoints[1];
+	
+	glColor3f( 1.0f, 0.0f, 0.0f );
+	glBegin( GL_LINE_LOOP );
+
+	glVertex3f( pMin.x, pMin.y, pMin.z );
+	glVertex3f( pMax.x, pMin.y, pMin.z );
+	glVertex3f( pMax.x, pMin.y, pMax.z );
+	glVertex3f( pMin.x, pMin.y, pMax.z );
+
+	glEnd();
+
+	glColor3f( 0.0f,1.0f, 0.0f );
+	glBegin( GL_LINE_LOOP );
+
+	glVertex3f( pMin.x, pMax.y, pMin.z );
+	glVertex3f( pMax.x, pMax.y, pMin.z );
+	glVertex3f( pMax.x, pMax.y, pMax.z );
+	glVertex3f( pMin.x, pMax.y, pMax.z );
+
+	glEnd();
+
+	glColor3f( 1.0f,1.0f, 1.0f );
+
 }
