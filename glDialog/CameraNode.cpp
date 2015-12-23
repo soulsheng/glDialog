@@ -16,6 +16,12 @@ cameranode::cameranode()
 
 void cameranode::look()
 {
+	if( bLookBox )
+	{
+		lookBox();
+		return;
+	}
+
 	if (KEY_DOWN(VK_SHIFT) && (g_speed <= 10000))    g_speed   =g_speed*g_acc;//按SHIFT时的加速
 	if (KEY_DOWN(VK_CONTROL))  g_speed   =g_speed/g_acc;//按CONTROL时的减速
 	if (KEY_DOWN(VK_LEFT))     g_Angle-=g_speed;//左转
@@ -60,6 +66,39 @@ void cameranode::look()
 			 << g_Angle<< std::endl << g_dir[1] ;
 		file.close();
 	}
+
+	if( KEY_DOWN('B') )
+	{
+		bLookBox = true;
+	}
+}
+
+void cameranode::lookBox()
+{
+	Point3* pPoints = m_pBox->getPoints() ;
+
+	Point3& pMin = pPoints[0];
+	Point3& pMax = pPoints[1];
+
+	Point3& pMid = ( pMax + pMin ) * 0.5f;
+	Point3& pSize = pMax - pMin;
+
+	static int nAngle = 0;
+	if ( bLookBox && nAngle < 360 )
+	{
+		nAngle ++;
+
+		gluLookAt(
+			pMid.x + pSize.x*2*cos(PI*nAngle/180.0f),	pMax.y * 4,	pMid.z + pSize.x*2*sin(PI*nAngle/180.0f),
+			pMid.x,	pMid.y,	pMid.z,
+			g_up[0],	g_up[1],	g_up[2]);
+
+	}
+	else
+	{
+		bLookBox = false;
+		nAngle = 0;
+	}
 }
 
 void cameranode::reset()
@@ -82,6 +121,7 @@ void cameranode::reset()
 	g_Angle = -90.0f;
 	g_speed = 0.2f;
 
+	bLookBox = false;
 
 #if CAMERA_CONFIG_ONCE
 	// set camera property by configuration file
@@ -142,4 +182,9 @@ void cameranode::OnMouseWheel( short zDelta )
 {
 	g_eye[0]+=g_dir[0]*g_speed * zDelta * 5;
 	g_eye[2]+=g_dir[2]*g_speed * zDelta * 5;
+}
+
+void cameranode::enableLookBox()
+{
+	bLookBox = true;
 }

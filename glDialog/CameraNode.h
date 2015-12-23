@@ -24,5 +24,8 @@ struct cameranode
 	{
 		m_pBox = pBox;
 	}
+	void lookBox();
+	void enableLookBox();
+	bool bLookBox;
 };
 
