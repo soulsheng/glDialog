@@ -10,12 +10,12 @@
 using namespace std;
 
 static const int    N                   = 64;
-static const int	L					= 275311;//136710;//102824;
+static const int	L					= 172666;//136710;//102824;
 #define CAMERA_CONFIG_ONCE	1
 
 
-#define FILE_NAME_POSITION	"../Data/0_w.txt"
-#define FILE_NAME_COLOR		"../Data/0_rgb.txt"
+#define FILE_NAME_POSITION	"../Data/1_w.txt"
+#define FILE_NAME_COLOR		"../Data/1_rgb.txt"
 #define FILE_NAME_BOX		"../Data/BoundingBox.txt"
 
 // glWnd
@@ -64,8 +64,8 @@ void glWndPointCloud::initialize()
 {
 	openTxt("../Data/Ex.txt", Ex, N, N, 0, 50000.0f );
 
-	read_xyzrgb( FILE_NAME_POSITION, m_pVertex, L*3, true );
-	read_xyzrgb( FILE_NAME_COLOR, m_pColor, L*3, true );
+	read_xyzrgb( FILE_NAME_POSITION, m_pVertex, L*3 );
+	read_xyzrgb( FILE_NAME_COLOR, m_pColor, L*3, 0.001 );
 
 	// upside down 
 	for ( int i=0;i<L;i++ )

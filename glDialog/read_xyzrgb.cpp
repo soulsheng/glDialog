@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-void read_xyzrgb( const char*file_name, double* pBuffer, int size, bool bTriple /*= false*/ )
+void read_xyzrgb( const char*file_name, double* pBuffer, int size, float scale/* = 1*/, bool bTriple /*= false*/ )
 {
 	
 	FILE *fp;
@@ -20,7 +20,7 @@ void read_xyzrgb( const char*file_name, double* pBuffer, int size, bool bTriple 
 	double temp;
 	while(1==fscanf(fp, "%lf", &temp)) 
 	{
-		*pBuffer++ = temp/1000;
+		*pBuffer++ = temp*scale;
 	}
 
 #else

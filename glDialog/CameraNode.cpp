@@ -84,12 +84,12 @@ void cameranode::lookBox()
 	Point3& pSize = pMax - pMin;
 
 	static int nAngle = 0;
-	if ( bLookBox && nAngle < 360 )
+	if ( bLookBox && nAngle < 720 )
 	{
 		nAngle ++;
 
 		gluLookAt(
-			pMid.x + pSize.x*2*cos(PI*nAngle/180.0f),	pMax.y * 4,	pMid.z + pSize.x*2*sin(PI*nAngle/180.0f),
+			pMid.x + pSize.x*cos(PI*nAngle/360.0f),	fabsf(pMax.y) * 4,	pMid.z + pSize.x*sin(PI*nAngle/360.0f),
 			pMid.x,	pMid.y,	pMid.z,
 			g_up[0],	g_up[1],	g_up[2]);
 
