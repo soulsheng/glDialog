@@ -65,7 +65,7 @@ void glWndPointCloud::initialize()
 	openTxt("../Data/Ex.txt", Ex, N, N, 0, 50000.0f );
 
 	read_xyzrgb( FILE_NAME_POSITION, m_pVertex, L*3 );
-	read_xyzrgb( FILE_NAME_COLOR, m_pColor, L*3, 0.001 );
+	read_xyzrgb( FILE_NAME_COLOR, m_pColor, L*3, 0.005 );
 
 	// upside down 
 	for ( int i=0;i<L;i++ )
