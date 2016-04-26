@@ -8,6 +8,7 @@
 #include <gl/GL.h>
 #include <gl/GLU.h>
 
+#include <assert.h>
 
 	class FrameBuffer
 	{

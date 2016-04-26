@@ -10,12 +10,12 @@
 using namespace std;
 
 static const int    N                   = 64;
-static const int	L					= 172666;//136710;//102824;
+static const int	L					= 155336;//136710;//102824;
 #define CAMERA_CONFIG_ONCE	1
 
 
-#define FILE_NAME_POSITION	"../Data/1_w.txt"
-#define FILE_NAME_COLOR		"../Data/1_rgb.txt"
+#define FILE_NAME_POSITION	"../Data/3_w.txt"
+#define FILE_NAME_COLOR		"../Data/3_rgb.txt"
 #define FILE_NAME_BOX		"../Data/BoundingBox.txt"
 
 // glWnd
